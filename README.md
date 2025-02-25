@@ -1,10 +1,15 @@
 # My public projects
 
-This is a list to some of my open source projects:
+This is a list to some of my open source projects 🤓🍕
 
-- [ValidForm Builder](https://github.com/rvanbaalen/validformbuilder)
-- [Eslint config](https://robinvanbaalen.nl/eslint-config/)
+## Standalone projects
+- [ValidForm Builder](https://github.com/validformbuilder/validformbuilder)
+
+## NPM packages
 - [HashParser](https://hashparser.js.org)
-- [TransitionJS](https://github.com/rvanbaalen/transitionjs)
-- [DomJS](https://github.com/rvanbaalen/domjs)
-- [Github Actions Runner manager](/runner-manager/)
+- [Eslint config](https://robinvanbaalen.nl/eslint-config/)
+- [TransitionJS](https://robinvanbaalen.nl/transitionjs)
+- [DomJS](https://robinvanbaalen.nl/domjs)
+
+## CLI tools
+- [Github Actions Runner manager](https://robinvanbaalen.nl/runner-manager/)
