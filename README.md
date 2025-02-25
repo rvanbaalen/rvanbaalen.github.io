@@ -7,4 +7,4 @@ This is a list to some of my open source projects:
 - [HashParser](https://hashparser.js.org)
 - [TransitionJS](https://github.com/rvanbaalen/transitionjs)
 - [DomJS](https://github.com/rvanbaalen/domjs)
-- [Github Actions Runner manager](https://github.com/rvanbaalen/runner-manager)
+- [Github Actions Runner manager](/runner-manager/)
