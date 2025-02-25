@@ -3,7 +3,7 @@
 This is a list to some of my open source projects:
 
 - [ValidForm Builder](https://github.com/rvanbaalen/validformbuilder)
-- [Eslint config](https://github.com/rvanbaalen/eslint-config)
+- [Eslint config](https://robinvanbaalen.nl/eslint-config/)
 - [HashParser](https://hashparser.js.org)
 - [TransitionJS](https://github.com/rvanbaalen/transitionjs)
 - [DomJS](https://github.com/rvanbaalen/domjs)
