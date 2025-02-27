@@ -3,7 +3,17 @@
 This is a list to some of my open source projects 🤓🍕
 
 ## Standalone projects
-- [ValidForm Builder](https://github.com/validformbuilder/validformbuilder)
+
+### ValidForm Builder
+
+![Packagist Downloads](https://img.shields.io/packagist/dt/validformbuilder/validformbuilder)
+![Packagist Stars](https://img.shields.io/packagist/stars/validformbuilder/validformbuilder)
+![GitHub License](https://img.shields.io/github/license/validformbuilder/validformbuilder)
+
+**ValidForm Builder** is a PHP and JavaScript library that simplifies creating standards-based web forms with client and server-side validation.
+
+- [Visit website](https://validformbuilder.org)
+- [Repository](https://github.com/validformbuilder/validformbuilder)
 
 ## NPM packages
 Reusable functionalities, most of the times without any external dependencies,
@@ -12,13 +22,18 @@ utilities I use in my real-life projects.
 
 ### HashParser
 ![NPM Downloads](https://img.shields.io/npm/d18m/%40rvanbaalen%2Fhashparser)
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/hashparser)
+![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Fhashparser)
 
-HashParser is a lightweight JavaScript library for managing URL hash parameters, with support for encoding and decoding.
+`@rvanbaalen/hashparser` is a lightweight JavaScript library for managing URL hash parameters, with support for encoding and decoding.
 
 - [Visit @rvanbaalen/HashParser](https://hashparser.js.org)
 - [Repository](https://github.com/rvanbaalen/hashparser)
 
 ### ESLint Config
+![NPM Downloads](https://img.shields.io/npm/d18m/%40rvanbaalen%2Feslint-config)
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/eslint-config)
+![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Feslint-config)
 
 A custom extension of the popular [antfu/eslint-config](https://github.com/antfu/eslint-config) 
 package based on my personal preferences.
@@ -27,20 +42,32 @@ package based on my personal preferences.
 - [ESLint Config repository](https://github.com/rvanbaalen/eslint-config)
 
 ### TransitionJS
+![NPM Downloads](https://img.shields.io/npm/d18m/%40rvanbaalen%2Ftransitionjs)
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/transitionjs)
+![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Ftransitionjs)
 
-TransitionJS provides dead simple JavaScript functions to use TailwindCSS transitions without libraries.
+`@rvanbaalen/transitionjs` provides dead simple JavaScript functions to use TailwindCSS transitions without libraries.
 
 - [Visit @rvanbaalen/TransitionJS](https://robinvanbaalen.nl/transitionjs)
 - [TransitionJS repository](https://github.com/rvanbaalen/transitionjs)
 
 ### DomJS
+![NPM Downloads](https://img.shields.io/npm/d18m/%40rvanbaalen%2Fdomjs)
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/domjs)
+![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Fdomjs)
 
-@rvanbaalen/domjs offers zero-dependency core DOM manipulation utilities in vanilla JavaScript.
+`@rvanbaalen/domjs` offers zero-dependency core DOM manipulation utilities in vanilla JavaScript.
 
 - [Visit @rvanbaalen/DomJS](https://robinvanbaalen.nl/domjs)
 - [DomJS repository](https://github.com/rvanbaalen/domjs)
 
 ## CLI tools
+
+### GitHub self-hosted Runner Manager
+
+![NPM Downloads](https://img.shields.io/npm/d18m/runner-manager)
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/runner-manager)
+![NPM Version](https://img.shields.io/npm/v/runner-manager)
 
 Easily control GitHub self-hosted runners locally with the runner-manager command-line interface.
 I wanted a tool to add, remove, start and stop Github self-hosted runners on my machines without
