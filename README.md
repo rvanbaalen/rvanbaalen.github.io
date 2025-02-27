@@ -1,4 +1,4 @@
-# My public projects
+# My Open Source projects
 
 This is a list to some of my open source projects 🤓🍕
 
