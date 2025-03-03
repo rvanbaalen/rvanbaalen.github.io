@@ -10,6 +10,16 @@ This is a list to some of my open source projects 🤓🍕
 
 ## Standalone projects
 
+### Curaçao Election 2025
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/curacao-election-2025)
+
+Elections are coming up in Curaçao and I felt that there was a lack of information about the political parties and their
+programs. I used ChatGPT Deep Research to summarize the information about this election's political parties and created
+a multi-lingual website to present this information.
+
+- [Visit website](https://robinvanbaalen.nl/curacao-election-2025)
+- [Repository](https://github.com/rvanbaalen/curacao-election-2025)
+
 ### ValidForm Builder
 
 ![Packagist Downloads](https://img.shields.io/packagist/dt/validformbuilder/validformbuilder)
