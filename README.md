@@ -1,5 +1,11 @@
 # My Open Source projects
 
+I'm [Robin van Baalen](https://www.linkedin.com/in/robinvanbaalen/), a seasoned software developer 
+and business owner, I have a passion for using technology to solve real-world problems and 
+create innovative solutions. With over a decade of experience in the industry, I have 
+worked with a variety of companies and have developed a strong skill set in a range 
+of programming languages and frameworks. 
+
 This is a list to some of my open source projects 🤓🍕
 
 ## Standalone projects
