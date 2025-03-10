@@ -100,6 +100,7 @@ npx runner-manager
 
 ### PDF Renamer
 
+![NPM Downloads](https://img.shields.io/npm/d18m/%40rvanbaalen%2Fpdf-renamer)
 ![GitHub License](https://img.shields.io/github/license/rvanbaalen/pdf-renamer)
 ![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Fpdf-renamer)
 
