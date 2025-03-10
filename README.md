@@ -97,3 +97,16 @@ npx runner-manager
 
 - [Visit Github Actions Runner manager](https://robinvanbaalen.nl/runner-manager/)
 - [Runner Manager repository](https://github.com/rvanbaalen/runner-manager)
+
+### PDF Renamer
+
+![GitHub License](https://img.shields.io/github/license/rvanbaalen/pdf-renamer)
+![NPM Version](https://img.shields.io/npm/v/%40rvanbaalen%2Fpdf-renamer)
+
+A command-line tool to automatically rename PDF files based on their content. Simply point it to a directory, and it will analyze and rename your PDFs with meaningful names.
+
+```bash
+npx @rvanbaalen/pdf-renamer
+```
+
+- [Repository](https://github.com/rvanbaalen/pdf-renamer)
