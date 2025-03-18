@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-24">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY4RKECQCF"></script>
@@ -36,44 +36,50 @@
     <link rel="alternate" href="https://robinvanbaalen.nl/{{PAGE_PATH}}" hreflang="x-default" />
 </head>
 <body class="bg-gray-50 text-gray-800 leading-relaxed pb-24">
-    <header class="text-white bg-gradient-to-r from-slate-900 via-sky-900 to-slate-900">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold">{{PAGE_TITLE}}</h1>
-                <nav>
-                    <ul class="flex gap-6">
-                        <li><a href="/" class="hover:text-white/80 transition">Home</a></li>
-                        <!-- Add more navigation links as needed -->
-                    </ul>
-                </nav>
+<header class="text-white bg-gradient-to-r from-slate-900 via-sky-900 to-slate-900 fixed top-0 left-0 right-0 z-10">
+    <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold">{{PAGE_TITLE}}</h1>
+            <nav>
+                <ul class="flex gap-6">
+                    <li><a href="/" class="hover:text-white/80 transition">Home</a></li>
+                    <!-- Add more navigation links as needed -->
+                    {{NAVIGATION_LINKS}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-12 mt-24">
+    <div class="flex items-center gap-2 mb-8">
+        <a href="https://robinvanbaalen.nl" class="text-sky-700 hover:text-sky-800 transition">&larr; See my other Open Source projects</a>
+    </div>
+
+    {{BADGES_SECTION}}
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">{{SECTION_TITLE}}</h2>
+
+        <div class="prose prose-slate max-w-none">
+            <!-- Section content goes here -->
+            {{SECTION_CONTENT}}
+        </div>
+    </section>
+</main>
+
+<footer class="bg-gray-800 text-white py-6 fixed bottom-0 left-0 right-0">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p><a href="/" class="hover:text-sky-300 transition">© 2025 Robin van Baalen</a></p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">GitHub</a>
+                <a href="https://www.linkedin.com/in/robinvanbaalen/" class="hover:text-sky-300 transition">LinkedIn</a>
             </div>
         </div>
-    </header>
-
-    <main class="container mx-auto px-4 py-12">
-        <!-- Page content goes here -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">{{SECTION_TITLE}}</h2>
-
-            <div class="prose prose-slate max-w-none">
-                <!-- Section content goes here -->
-                {{SECTION_CONTENT}}
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-6 fixed bottom-0 left-0 right-0">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p><a href="/" class="hover:text-sky-300 transition">© 2025 Robin van Baalen</a></p>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">GitHub</a>
-                    <a href="https://www.linkedin.com/in/robinvanbaalen/" class="hover:text-sky-300 transition">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
