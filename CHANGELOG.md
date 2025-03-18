@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.2.0...rvanbaalen.github.io-v1.3.0) (2025-03-18)
+
+
+### Features
+
+* add Google Analytics tracking to index.html ([92c5000](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/92c500010b1c1f40009bac940705abf24dca3bc2))
+
 ## [1.2.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.1.0...rvanbaalen.github.io-v1.2.0) (2025-03-18)
 
 
