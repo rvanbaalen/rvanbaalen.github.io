@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.0.1...rvanbaalen.github.io-v1.1.0) (2025-03-18)
+
+
+### Features
+
+* add build step to release workflow for GitHub Pages deployment ([f3a406c](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/f3a406cdafc5ad282abe6f9d972de734337a5480))
+
 ## [1.0.1](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.0.0...rvanbaalen.github.io-v1.0.1) (2025-03-18)
 
 
