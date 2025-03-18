@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.1.0...rvanbaalen.github.io-v1.2.0) (2025-03-18)
+
+
+### Features
+
+* enhance GitHub Actions workflow with build and deployment steps for GitHub Pages ([d1fb2dc](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/d1fb2dc4e0b5bf03da9c1fa0e61d60a3910711f9))
+
 ## [1.1.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.0.1...rvanbaalen.github.io-v1.1.0) (2025-03-18)
 
 
