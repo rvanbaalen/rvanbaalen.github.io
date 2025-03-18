@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Robin van Baalen - Open Source Projects</title>
+    <meta name="description" content="Robin van Baalen's open source projects including web applications, NPM packages, and CLI tools">
+    <link href="/src/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230f172a'/%3E%3Cstop offset='50%25' style='stop-color:%230369a1'/%3E%3Cstop offset='100%25' style='stop-color:%234f46e5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='15' fill='url(%23grad)'/%3E%3C/svg%3E">
+
+    <meta property="og:title" content="Robin van Baalen - Open Source Projects" />
+    <meta property="og:description" content="Robin van Baalen's open source projects including web applications, NPM packages, and CLI tools" />
+    <meta property="og:image" content="https://github.com/rvanbaalen.png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:url" content="https://robinvanbaalen.nl" />
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="https://robinvanbaalen.nl/" />
+    <link rel="alternate" href="https://robinvanbaalen.nl/" hreflang="x-default" />
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+    <header class="text-white bg-gradient-to-r from-slate-900 via-sky-900 to-slate-900">
+        <div class="container mx-auto px-4 py-16 md:py-24">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <img src="https://github.com/rvanbaalen.png" alt="Robin van Baalen" class="w-32 h-32 rounded-full border-4 border-white shadow-lg">
+                <div class="text-lg md:text-xl flex flex-col gap-y-4 max-w-3xl">
+                    <h1 class="text-3xl md:text-5xl font-bold">Hi. I'm Robin 👋</h1>
+                    <p>
+                        I'm <a href="https://www.linkedin.com/in/robinvanbaalen/" class="underline hover:text-white/80 transition">Robin van Baalen</a>,
+                        a seasoned software developer and business owner with a passion for using technology to solve real-world problems and
+                        create innovative solutions.
+                    </p>
+                    <p>
+                        With almost two decades of experience in the industry, I have
+                        worked with a variety of companies in roles varying from lead developer, software architect and senior consultant and have developed a strong skill set in a range
+                        of programming languages and frameworks.
+                    </p>
+                    <p class="text-lg md:text-xl mt-4">This is a list of some of my open source projects 🤓🍕</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">Standalone Projects</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Curaçao Election 2025 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">Curaçao Election 2025</h3>
+                            <div>
+                                <img src="https://img.shields.io/github/license/rvanbaalen/curacao-election-2025" alt="GitHub License" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            Elections are coming up in Curaçao and I felt that there was a lack of information about the political parties and their
+                            programs. I used ChatGPT Deep Research to summarize the information about this election's political parties and created
+                            a multi-lingual website to present this information.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://robinvanbaalen.nl/curacao-election-2025" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/curacao-election-2025" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ValidForm Builder -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">ValidForm Builder</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/packagist/dt/validformbuilder/validformbuilder" alt="Packagist Downloads" class="h-6">
+                                <img src="https://img.shields.io/packagist/stars/validformbuilder/validformbuilder" alt="Packagist Stars" class="h-6">
+                                <img src="https://img.shields.io/github/license/validformbuilder/validformbuilder" alt="GitHub License" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            <strong>ValidForm Builder</strong> is a PHP and JavaScript library that simplifies creating standards-based web forms with client and server-side validation.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://validformbuilder.org" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/validformbuilder/validformbuilder" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">NPM Packages</h2>
+            <p class="mb-8 text-xl">
+                Reusable functionalities, most of the times without any external dependencies,
+                are the core concept of most of my open source packages. These are often
+                utilities I use in my real-life projects.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- HashParser -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">HashParser</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/%40rvanbaalen%2Fhashparser" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/hashparser" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/%40rvanbaalen%2Fhashparser" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            <code class="bg-gray-100 px-2 py-1 rounded">@rvanbaalen/hashparser</code> is a lightweight JavaScript library for managing URL hash parameters, with support for encoding and decoding.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://hashparser.js.org" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/hashparser" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESLint Config -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">ESLint Config</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/%40rvanbaalen%2Feslint-config" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/eslint-config" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/%40rvanbaalen%2Feslint-config" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            A custom extension of the popular <a href="https://github.com/antfu/eslint-config" class="text-sky-600 hover:underline">antfu/eslint-config</a>
+                            package based on my personal preferences.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://robinvanbaalen.nl/eslint-config/" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/eslint-config" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TransitionJS -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">TransitionJS</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/%40rvanbaalen%2Ftransitionjs" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/transitionjs" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/%40rvanbaalen%2Ftransitionjs" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            <code class="bg-gray-100 px-2 py-1 rounded">@rvanbaalen/transitionjs</code> provides dead simple JavaScript functions to use TailwindCSS transitions without libraries.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://robinvanbaalen.nl/transitionjs" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/transitionjs" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DomJS -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">DomJS</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/%40rvanbaalen%2Fdomjs" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/domjs" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/%40rvanbaalen%2Fdomjs" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            <code class="bg-gray-100 px-2 py-1 rounded">@rvanbaalen/domjs</code> offers zero-dependency core DOM manipulation utilities in vanilla JavaScript.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://robinvanbaalen.nl/domjs" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/domjs" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">CLI Tools</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- GitHub self-hosted Runner Manager -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">GitHub Runner Manager</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/runner-manager" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/runner-manager" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/runner-manager" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            Easily control GitHub self-hosted runners locally with the runner-manager command-line interface.
+                            I wanted a tool to add, remove, start and stop Github self-hosted runners on my machines without
+                            manually copying and pasting all the commands every time. This simple CLI does exactly that.
+                        </p>
+                        <div class="bg-gray-100 p-3 rounded mb-6">
+                            <code class="text-sm font-mono">npx runner-manager</code>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://robinvanbaalen.nl/runner-manager/" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Visit Website</a>
+                            <a href="https://github.com/rvanbaalen/runner-manager" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Renamer -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-sky-700">PDF Renamer</h3>
+                            <div class="flex space-x-1">
+                                <img src="https://img.shields.io/npm/d18m/%40rvanbaalen%2Fpdf-renamer" alt="NPM Downloads" class="h-6">
+                                <img src="https://img.shields.io/github/license/rvanbaalen/pdf-renamer" alt="GitHub License" class="h-6">
+                                <img src="https://img.shields.io/npm/v/%40rvanbaalen%2Fpdf-renamer" alt="NPM Version" class="h-6">
+                            </div>
+                        </div>
+                        <p class="mb-6">
+                            A command-line tool to automatically rename PDF files based on their content. Simply point it to a directory, and it will analyze and rename your PDFs with meaningful names.
+                        </p>
+                        <div class="bg-gray-100 p-3 rounded mb-6">
+                            <code class="text-sm font-mono">npx @rvanbaalen/pdf-renamer</code>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rvanbaalen/pdf-renamer" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>© 2025 Robin van Baalen</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">GitHub</a>
+                    <a href="https://www.linkedin.com/in/robinvanbaalen/" class="hover:text-sky-300 transition">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
