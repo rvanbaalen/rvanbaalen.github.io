@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.3.0...rvanbaalen.github.io-v1.4.0) (2025-03-18)
+
+
+### Features
+
+* add language parameter to Google Analytics configuration in index.html ([df719a5](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/df719a5f81ecc11c95008b445bbe0eb82f7504a3))
+* update template.html for improved header and footer layout ([524d53e](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/524d53e813bcd1bbc3319512f99802f70b2056a5))
+
 ## [1.3.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.2.0...rvanbaalen.github.io-v1.3.0) (2025-03-18)
 
 
