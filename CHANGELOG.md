@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.0.0...rvanbaalen.github.io-v1.0.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* update stylesheet link and relocate CSS file ([d09e2ee](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/d09e2ee23e887d4d1b947ac89cadc1bcc54e0ab3))
+
 ## 1.0.0 (2025-03-18)
 
 
