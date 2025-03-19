@@ -16,8 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{PAGE_TITLE}} - Robin van Baalen</title>
     <meta name="description" content="{{PAGE_DESCRIPTION}}">
+    {{[BEGIN-STYLESHEET]}}
     <link href="/css/style.css" rel="stylesheet">
-    {{CUSTOM_STYLESHEET}}
+    {{[END-STYLESHEET]}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,36 +28,52 @@
 
     <meta property="og:title" content="{{PAGE_TITLE}} - Robin van Baalen" />
     <meta property="og:description" content="{{PAGE_DESCRIPTION}}" />
-    <meta property="og:image" content="https://github.com/rvanbaalen.png" />
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="400" />
-    <meta property="og:url" content="https://robinvanbaalen.nl/{{PAGE_PATH}}" />
+    <meta property="og:image" content="{{OG_IMAGE}}" />
+    <meta property="og:image:width" content="{{OG_IMAGE_WIDTH}}" />
+    <meta property="og:image:height" content="{{OG_IMAGE_HEIGHT}}" />
+    <meta property="og:url" content="{{FULL_URL}}" />
     <meta property="og:type" content="website" />
 
-    <link rel="canonical" href="https://robinvanbaalen.nl/{{PAGE_PATH}}" />
-    <link rel="alternate" href="https://robinvanbaalen.nl/{{PAGE_PATH}}" hreflang="x-default" />
+    <meta property="og:image" content="https://socialify.git.ci/rvanbaalen/readme-to-html/image?language=1&name=1&owner=1&pattern=Charlie+Brown&theme=Light" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+
+    <link rel="canonical" href="{{FULL_URL}}" />
+    <link rel="alternate" href="{{FULL_URL}}" hreflang="x-default" />
 
     <!-- Prism.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800 leading-relaxed pb-24">
 <header class="text-white bg-gradient-to-r from-slate-900 via-sky-900 to-slate-900 fixed top-0 left-0 right-0 z-10">
-    <div class="container mx-auto px-4 py-6">
-        <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">{{PAGE_TITLE}}</h1>
-            <nav>
-                <ul class="flex gap-6">
-                    <li><a href="/" class="hover:text-white/80 transition">Home</a></li>
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex flex-col items-center md:items-start">
+            <!-- Title row with links on the right on desktop -->
+            <div class="w-full flex flex-col md:flex-row justify-between items-center md:items-center mb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-center md:text-left">{{PAGE_TITLE}}</h1>
+                    <p class="text-white/80 text-sm md:text-base text-center md:text-left mt-1 mb-3 md:mb-0">{{PAGE_DESCRIPTION}}</p>
+                </div>
+
+                <!-- Main navigation links visible on mobile -->
+                <div class="flex justify-center gap-4 md:gap-6 text-sm md:text-base">
+                    <a href="/" class="hover:text-white/80 transition px-2 py-1">&larr; All my projects</a>
+                    <a target="_blank" href="{{GITHUB_REPO_LINK}}" class="hover:text-white/80 transition px-2 py-1">View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Additional navigation links -->
+            <nav class="w-full">
+                <ul class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-6 text-sm md:text-base">
                     <!-- Add more navigation links as needed -->
                     {{NAVIGATION_LINKS}}
-                    <li><a target="_blank" href="{{GITHUB_REPO_LINK}}" class="hover:text-white/80 transition">View on GitHub</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 </header>
 
-<main class="container mx-auto px-4 py-12 mt-14">
+<main class="container mx-auto px-4 py-12 mt-24 md:mt-16">
     <div class="flex items-center gap-2 mb-8">
         <a href="https://robinvanbaalen.nl" class="text-sky-700 hover:text-sky-800 transition">&larr; See my other Open Source projects</a>
     </div>
@@ -82,8 +99,9 @@
                 <p><a href="/" class="hover:text-sky-300 transition">© 2025 Robin van Baalen</a></p>
             </div>
             <div class="flex space-x-4">
-                <a href="{{GITHUB_REPO_LINK}}" class="hover:text-sky-300 transition">GitHub Repo</a>
-                <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">GitHub</a>
+                <a href="{{GITHUB_REPO_LINK}}" class="hover:text-sky-300 transition">Repository</a>
+                <a href="{{GITHUB_REPO_LINK}}" class="hover:text-sky-300 transition">Repository</a>
+                <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">Profile</a>
                 <a href="https://www.linkedin.com/in/robinvanbaalen/" class="hover:text-sky-300 transition">LinkedIn</a>
             </div>
         </div>
