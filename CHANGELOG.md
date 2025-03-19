@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.4.0...rvanbaalen.github.io-v1.5.0) (2025-03-19)
+
+
+### Features
+
+* rename template.html to project-template.html and add Prism.js for syntax highlighting ([d439f72](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/d439f72d7078605a106cc977c2d8f0d0f054d37e))
+
 ## [1.4.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.3.0...rvanbaalen.github.io-v1.4.0) (2025-03-18)
 
 
