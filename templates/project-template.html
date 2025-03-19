@@ -34,6 +34,9 @@
 
     <link rel="canonical" href="https://robinvanbaalen.nl/{{PAGE_PATH}}" />
     <link rel="alternate" href="https://robinvanbaalen.nl/{{PAGE_PATH}}" hreflang="x-default" />
+
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800 leading-relaxed pb-24">
 <header class="text-white bg-gradient-to-r from-slate-900 via-sky-900 to-slate-900 fixed top-0 left-0 right-0 z-10">
@@ -45,27 +48,30 @@
                     <li><a href="/" class="hover:text-white/80 transition">Home</a></li>
                     <!-- Add more navigation links as needed -->
                     {{NAVIGATION_LINKS}}
+                    <li><a target="_blank" href="{{GITHUB_REPO_LINK}}" class="hover:text-white/80 transition">View on GitHub</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 </header>
 
-<main class="container mx-auto px-4 py-12 mt-24">
+<main class="container mx-auto px-4 py-12 mt-14">
     <div class="flex items-center gap-2 mb-8">
         <a href="https://robinvanbaalen.nl" class="text-sky-700 hover:text-sky-800 transition">&larr; See my other Open Source projects</a>
     </div>
 
     {{BADGES_SECTION}}
 
-    <section class="mb-16">
+    {{[BEGIN-SECTION]}}
+    <section class="mb-16"{{SECTION_ID}}>
         <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-8">{{SECTION_TITLE}}</h2>
 
-        <div class="prose prose-slate max-w-none">
+        <div class="prose prose-neutral prose-a:text-sky-600 prose-a:underline-offset-2 max-w-none">
             <!-- Section content goes here -->
             {{SECTION_CONTENT}}
         </div>
     </section>
+    {{[END-SECTION]}}
 </main>
 
 <footer class="bg-gray-800 text-white py-6 fixed bottom-0 left-0 right-0">
@@ -75,11 +81,22 @@
                 <p><a href="/" class="hover:text-sky-300 transition">© 2025 Robin van Baalen</a></p>
             </div>
             <div class="flex space-x-4">
+                <a href="{{GITHUB_REPO_LINK}}" class="hover:text-sky-300 transition">GitHub Repo</a>
                 <a href="https://github.com/rvanbaalen" class="hover:text-sky-300 transition">GitHub</a>
                 <a href="https://www.linkedin.com/in/robinvanbaalen/" class="hover:text-sky-300 transition">LinkedIn</a>
             </div>
         </div>
     </div>
 </footer>
+
+<!-- Prism.js for syntax highlighting -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    Prism.highlightAll();
+  });
+</script>
 </body>
 </html>
