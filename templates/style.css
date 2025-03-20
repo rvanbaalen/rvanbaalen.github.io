@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@source '.';
-@source './src/';
-@source './build/';
+@source './*.{html,css,js}';
+@source './src/*.{html,css,js}';
+@source './build/*.{html,css,js}';
 
 /* Apply Outfit font to headings */
 h1, h2, h3, h4, h5, h6 {
