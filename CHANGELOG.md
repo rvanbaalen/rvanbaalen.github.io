@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.6.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.5.0...rvanbaalen.github.io-v1.6.0) (2025-03-20)
+
+
+### Features
+
+* add HTML syntax highlighting support in project-template.html ([2f88f77](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/2f88f77c832f752ccc68a1fa9d8ecf075573821f))
+* add support for custom stylesheet in project-template.html ([2220786](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/222078658fd9aa7502b9e5cf01718135be2192c8))
+* add Tailwind CSS support and custom font styling in style.css ([4983401](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/498340117f6a3ec9fc4e9d78b79099306ae8aa69))
+* enhance project-template.html with improved meta tags and header layout ([658b9dd](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/658b9ddf8b53c31ad7863db6936d14f25ad122d1))
+* remove unused stylesheet link from project-template.html ([bdb20ae](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/bdb20ae2ae34e8f299b1cd0d4b469648951385cc))
+* update source patterns in style.css for improved file inclusion ([6f31050](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/6f31050d13f58f3bdf7d991480b8c7efd5651bea))
+
+
+### Bug Fixes
+
+* adjust padding and margin in project-template.html for improved layout ([28c2cba](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/28c2cba88883ce999fcdd3f5d00ac42529c8c9b0))
+* adjust scroll padding in project-template.html for improved layout ([050dcb7](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/050dcb71149f01f6967d1dc871141f8df3879e8a))
+* remove external link section from project-template.html for a cleaner layout ([b92c23c](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/b92c23c17b4e839e5168c6a2cab0c02cad559baa))
+
 ## [1.5.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.4.0...rvanbaalen.github.io-v1.5.0) (2025-03-19)
 
 
