@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.6.0...rvanbaalen.github.io-v1.7.0) (2025-03-21)
+
+
+### Features
+
+* add project templates section to index.html with descriptions and links ([8b482b6](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/8b482b68fc5181559d89423bbbb7feaed346d71a))
+
+
+### Bug Fixes
+
+* enhance layout structure in index.html for better responsiveness ([da6e1ea](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/da6e1ea4287ab4954b2d3dd8a016816e328eb652))
+* update footer layout and adjust body padding for improved design ([e32d7b4](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/e32d7b483acaa61794a14a2dd9e2a3eb4e03a096))
+
 ## [1.6.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.5.0...rvanbaalen.github.io-v1.6.0) (2025-03-20)
 
 
