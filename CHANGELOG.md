@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.7.0...rvanbaalen.github.io-v1.8.0) (2025-03-30)
+
+
+### Features
+
+* add @rvanbaalen/custom-scroll ([270841e](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/270841ecc99bb0d1d9df4454d2a6688718983e15))
+* add signals package to projects list ([7f95cf9](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/7f95cf958b3c8966751c56919d28cd1ff85ca985))
+
 ## [1.7.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.6.0...rvanbaalen.github.io-v1.7.0) (2025-03-21)
 
 
