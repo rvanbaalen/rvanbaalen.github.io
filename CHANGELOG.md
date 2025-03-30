@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.9.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.8.0...rvanbaalen.github.io-v1.9.0) (2025-03-30)
+
+
+### Features
+
+* add archived projects section and move Curacao election project ([9b44c62](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/9b44c62da9e3f3dba6dacc7c83dd7ad61346e1cd))
+
+
+### Bug Fixes
+
+* update favicon ([08b96e0](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/08b96e07b8378bacbc2f8cbf9b8c87582a1467d5))
+
 ## [1.8.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.7.0...rvanbaalen.github.io-v1.8.0) (2025-03-30)
 
 
