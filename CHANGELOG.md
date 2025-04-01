@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.9.0...rvanbaalen.github.io-v1.10.0) (2025-04-01)
+
+
+### Features
+
+* add portals and source-to-llm packages ([4baa411](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/4baa411dc0411bee348b8f03766a5a84ddd5395b))
+
+
+### Bug Fixes
+
+* also add the link to the website ([97f30f7](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/97f30f75150863618e3008e9ab2dd4bc5ecfbf9f))
+
 ## [1.9.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.8.0...rvanbaalen.github.io-v1.9.0) (2025-03-30)
 
 
