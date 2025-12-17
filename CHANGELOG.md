@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.10.0...rvanbaalen.github.io-v1.11.0) (2025-12-17)
+
+
+### Features
+
+* add json-beautify to standalone projects ([#13](https://github.com/rvanbaalen/rvanbaalen.github.io/issues/13)) ([87fd4a5](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/87fd4a546bfac8f4dc7eac786f365cbabc027c89))
+
 ## [1.10.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.9.0...rvanbaalen.github.io-v1.10.0) (2025-04-01)
 
 
