@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.11.0...rvanbaalen.github.io-v1.12.0) (2025-12-17)
+
+
+### Features
+
+* redesign site with inspired modern portfolio template ([#16](https://github.com/rvanbaalen/rvanbaalen.github.io/issues/16)) ([4e2d625](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/4e2d62572e3ec1f601769688e610ff3d2c0cf044))
+
 ## [1.11.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.10.0...rvanbaalen.github.io-v1.11.0) (2025-12-17)
 
 
