@@ -15,7 +15,7 @@ This is a list to some of my open source projects 🤓🍕
 
 **SpreadPaper** is a native macOS utility designed to spread a single high-resolution wallpaper seamlessly across multiple monitors. It enables users to display one panoramic image across 2, 3, or more connected displays with an intuitive drag-and-drop interface, live preview, zoom controls, and preset management.
 
-- [Visit website](https://spreadpaper.com)
+- [Visit website](https://spreadpaper.github.io/spreadpaper)
 - [Repository](https://github.com/spreadpaper/spreadpaper)
 
 ### Curaçao Election 2025
