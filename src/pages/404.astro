@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Not Found — Robin van Baalen">
+  <div class="flex flex-col items-start py-20">
+    <p class="mb-4 font-mono text-sm text-accent">404</p>
+    <h1 class="mb-4 text-3xl font-normal tracking-tight text-primary">Page not found</h1>
+    <p class="mb-8 text-muted">The page you're looking for doesn't exist or has been moved.</p>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 font-mono text-xs text-accent transition-colors duration-150 hover:text-accent-bright"
+    >
+      <i class="ph ph-arrow-left text-[11px]" aria-hidden="true" />
+      Back to home
+    </a>
+  </div>
+</BaseLayout>
