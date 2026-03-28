@@ -1,0 +1,8 @@
+name: PDF Renamer
+description: Command-line tool to automatically rename PDF files based on their content. Point it to a directory and it analyzes and renames your PDFs
+repo: https://github.com/rvanbaalen/pdf-renamer
+tech:
+  - TypeScript
+  - CLI
+category: cli
+order: 14

@@ -1,0 +1,10 @@
+name: ValidForm Builder
+description: PHP and JavaScript library for creating standards-based web forms with client and server-side validation
+url: https://validformbuilder.org
+repo: https://github.com/validformbuilder/validformbuilder
+tech:
+  - PHP
+  - JavaScript
+category: standalone
+featured: true
+order: 1

@@ -1,0 +1,10 @@
+name: "Curaçao Election 2025"
+description: Multi-lingual website presenting summarized information about Curacao's 2025 election political parties
+url: https://robinvanbaalen.nl/curacao-election-2025
+repo: https://github.com/rvanbaalen/curacao-election-2025
+tech:
+  - HTML
+  - JavaScript
+category: archived
+archived: true
+order: 15

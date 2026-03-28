@@ -1,0 +1,8 @@
+name: Static HTML Template
+description: Starter template for creating static HTML websites with modern tooling, including Tailwind CSS, and automatic deployment to GitHub Pages
+repo: https://github.com/rvanbaalen/template-static-html
+tech:
+  - HTML
+  - Tailwind CSS
+category: template
+order: 11

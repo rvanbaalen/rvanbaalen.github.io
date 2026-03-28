@@ -1,0 +1,9 @@
+name: ESLint Config
+description: A custom extension of the popular antfu/eslint-config package based on personal preferences
+url: https://robinvanbaalen.nl/eslint-config/
+repo: https://github.com/rvanbaalen/eslint-config
+tech:
+  - JavaScript
+  - ESLint
+category: package
+order: 3

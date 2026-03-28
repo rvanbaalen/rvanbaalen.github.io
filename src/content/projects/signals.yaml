@@ -1,0 +1,7 @@
+name: Signals
+description: Lightweight, decoupled pub/sub signal system for building reactive web applications with organized state management
+repo: https://github.com/rvanbaalen/signals
+tech:
+  - JavaScript
+category: package
+order: 5

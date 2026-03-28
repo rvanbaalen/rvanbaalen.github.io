@@ -1,0 +1,8 @@
+name: Custom Scroll
+description: Lightweight, customizable scrollbar replacement for web applications with easy implementation and extensive styling options
+url: https://robinvanbaalen.nl/custom-scroll
+repo: https://github.com/rvanbaalen/custom-scroll
+tech:
+  - JavaScript
+category: package
+order: 6

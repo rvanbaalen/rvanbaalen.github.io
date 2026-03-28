@@ -1,0 +1,8 @@
+name: NPM Package Template
+description: Template repository for quickly creating new NPM packages with TypeScript, testing setup, and CI/CD workflows pre-configured
+repo: https://github.com/rvanbaalen/template-npm-package
+tech:
+  - TypeScript
+  - GitHub Actions
+category: template
+order: 10
