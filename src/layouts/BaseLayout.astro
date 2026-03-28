@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+import DotPattern from "../components/DotPattern.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Robin van Baalen — Software engineer, consultant, and builder.",
+  ogImage = "https://github.com/rvanbaalen.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23161620' stroke='%23333' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='32' font-weight='bold' text-anchor='middle' fill='%23eae6dc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY4RKECQCF"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-DY4RKECQCF", { language: document.documentElement.lang || "en" });
+    </script>
+
+    <link rel="alternate" type="application/rss+xml" title="Robin van Baalen" href="/rss.xml" />
+  </head>
+  <body class="bg-base text-secondary font-serif leading-relaxed pb-16 md:pb-0">
+    <DotPattern />
+    <div class="relative z-10 mx-auto grid min-h-screen md:grid-cols-[280px_1fr]">
+      <Sidebar currentPath={currentPath} />
+      <main class="max-w-[820px] px-6 py-12 md:px-16 md:py-12">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
