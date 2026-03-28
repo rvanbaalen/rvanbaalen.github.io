@@ -1,0 +1,27 @@
+---
+// SVG topographic contour line background with radial fade mask
+// Fixed position, behind all content, purely decorative
+---
+
+<div
+  class="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+  style={`opacity: var(--topo-opacity); mask-image: radial-gradient(ellipse at 20% 15%, black 5%, transparent 50%); -webkit-mask-image: radial-gradient(ellipse at 20% 15%, black 5%, transparent 50%);`}
+  aria-hidden="true"
+>
+  <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" class="h-full w-full">
+    <g fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary">
+      <ellipse cx="350" cy="300" rx="320" ry="200" />
+      <ellipse cx="348" cy="298" rx="260" ry="160" />
+      <ellipse cx="345" cy="295" rx="200" ry="120" />
+      <ellipse cx="342" cy="290" rx="145" ry="85" />
+      <ellipse cx="338" cy="285" rx="95" ry="54" />
+      <ellipse cx="335" cy="280" rx="50" ry="28" />
+      <ellipse cx="780" cy="500" rx="220" ry="150" />
+      <ellipse cx="778" cy="498" rx="165" ry="110" />
+      <ellipse cx="776" cy="495" rx="110" ry="72" />
+      <ellipse cx="774" cy="492" rx="60" ry="38" />
+      <path d="M 80,140 Q 200,110 340,130 Q 480,150 600,120" />
+      <path d="M 550,700 Q 700,670 850,690 Q 1000,710 1150,680" />
+    </g>
+  </svg>
+</div>

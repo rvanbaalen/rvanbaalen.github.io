@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
-import DotPattern from "../components/DotPattern.astro";
+import TopoPattern from "../components/TopoPattern.astro";
 import Sidebar from "../components/Sidebar.astro";
 import MobileNav from "../components/MobileNav.astro";
 
@@ -22,7 +22,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,11 +53,17 @@ const currentPath = Astro.url.pathname;
     </script>
 
     <link rel="alternate" type="application/rss+xml" title="Robin van Baalen" href="/rss.xml" />
+    <script is:inline>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <ViewTransitions />
   </head>
-  <body class="bg-base text-secondary font-serif leading-relaxed pb-16 md:pb-0">
-    <DotPattern />
-    <div class="relative z-10 mx-auto grid min-h-screen md:grid-cols-[280px_1fr]">
+  <body class="bg-base text-secondary font-serif text-lg leading-relaxed pb-16 md:pb-0 transition-colors duration-300">
+    <TopoPattern />
+    <div class="relative z-10 mx-auto grid min-h-screen md:grid-cols-[260px_1fr]">
       <Sidebar currentPath={currentPath} />
       <main class="max-w-[820px] px-6 py-12 md:px-16 md:py-12">
         <slot />
