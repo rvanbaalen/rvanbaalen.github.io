@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/lora": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
