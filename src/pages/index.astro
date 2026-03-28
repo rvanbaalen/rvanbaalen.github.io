@@ -8,7 +8,19 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Robin van Baalen</title>
   </head>
-  <body class="bg-black text-white">
-    <h1 class="text-4xl p-8">Site rebuilding with Astro</h1>
+  <body class="bg-base text-secondary font-serif">
+    <div class="p-12 max-w-2xl">
+      <h1 class="text-4xl text-primary mb-4">Lora Serif Heading</h1>
+      <p class="mb-4">This body text should render in Lora serif font with secondary text color on the dark OKLCH background.</p>
+      <p class="font-mono text-sm text-muted mb-4">IBM Plex Mono for UI labels and code</p>
+      <p class="text-accent mb-4">Accent color text: oklch(58.8% 0.158 241.966)</p>
+      <div class="flex gap-4 text-2xl text-dim">
+        <i class="ph ph-house"></i>
+        <i class="ph ph-article"></i>
+        <i class="ph ph-code"></i>
+        <i class="ph ph-user"></i>
+        <i class="ph ph-envelope"></i>
+      </div>
+    </div>
   </body>
 </html>

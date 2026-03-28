@@ -24,6 +24,9 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/sitemap": "^3.7.2",
+    "@fontsource-variable/lora": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@phosphor-icons/web": "^2.1.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.18.1",
