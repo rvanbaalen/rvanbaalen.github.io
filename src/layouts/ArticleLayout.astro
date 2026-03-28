@@ -1,0 +1,49 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  tags: string[];
+}
+
+const { title, description, date, tags } = Astro.props;
+
+const formattedDate = date.toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<BaseLayout title={`${title} — Robin van Baalen`} description={description}>
+  <article>
+    <header class="mb-10">
+      <a
+        href="/articles"
+        class="mb-6 inline-flex items-center gap-1 font-mono text-xs text-muted transition-colors duration-150 hover:text-accent"
+      >
+        <i class="ph ph-arrow-left text-[11px]" aria-hidden="true" />
+        All articles
+      </a>
+      <h1 class="mb-4 text-3xl font-normal leading-tight tracking-tight text-primary md:text-4xl">
+        {title}
+      </h1>
+      <div class="flex flex-wrap items-center gap-3 font-mono text-[11px] text-dim">
+        <span class="flex items-center gap-1">
+          <i class="ph ph-calendar-blank text-xs" aria-hidden="true" />
+          {formattedDate}
+        </span>
+        {tags.map((tag) => (
+          <span class="rounded bg-accent-glow px-2 py-0.5 uppercase tracking-wide text-accent">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+    <div class="prose prose-invert max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-primary prose-p:text-secondary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-accent-bright prose-pre:bg-surface prose-pre:border prose-pre:border-edge prose-strong:text-primary prose-blockquote:border-accent-dim prose-blockquote:text-muted">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
