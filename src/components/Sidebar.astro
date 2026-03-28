@@ -93,7 +93,7 @@ function isActive(href: string, current: string): boolean {
         data-theme-toggle
         aria-label="Toggle theme"
       >
-        <i class="ph ph-sun-dim text-base" data-theme-icon aria-hidden="true" />
+        <i class="ph ph-sun-dim text-[16px]" data-theme-icon aria-hidden="true" />
         <span data-theme-label>Light mode</span>
       </button>
       <script>
@@ -102,10 +102,12 @@ function isActive(href: string, current: string): boolean {
           const icon = document.querySelector("[data-theme-icon]");
           const label = document.querySelector("[data-theme-label]");
           if (!btn || !icon || !label) return;
+          if (btn.hasAttribute("data-theme-init")) return;
+          btn.setAttribute("data-theme-init", "");
 
           function updateUI() {
             const current = document.documentElement.getAttribute("data-theme") || "dark";
-            icon.className = current === "dark" ? "ph ph-sun-dim text-base" : "ph ph-moon text-base";
+            icon.className = current === "dark" ? "ph ph-sun-dim text-[16px]" : "ph ph-moon text-[16px]";
             label.textContent = current === "dark" ? "Light mode" : "Dark mode";
           }
           updateUI();
