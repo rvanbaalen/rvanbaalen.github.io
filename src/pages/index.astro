@@ -1,9 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Availability from "../components/Availability.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import ProjectRow from "../components/ProjectRow.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const allArticles = await getCollection("articles", ({ data }) => !data.draft);
+const recentArticles = allArticles
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+
+const allProjects = await getCollection("projects");
+const featuredProjects = allProjects
+  .filter((p) => p.data.featured && !p.data.archived)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Robin van Baalen">
+  <!-- Intro -->
   <section class="mb-16">
     <p class="mb-5 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent">
       <i class="ph ph-hand-waving" aria-hidden="true" />
@@ -24,5 +39,69 @@ import Availability from "../components/Availability.astro";
 
   <div class="h-px bg-gradient-to-r from-edge to-transparent" />
 
-  <p class="py-12 text-muted">More sections coming soon.</p>
+  <!-- Recent Articles -->
+  <section class="py-12">
+    <div class="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.1em] text-dim">
+      <span class="flex items-center gap-1">
+        <i class="ph ph-article text-[13px]" aria-hidden="true" />
+        Recent writing
+      </span>
+      <a href="/articles" class="flex items-center gap-1 text-accent">
+        View all <i class="ph ph-arrow-right text-[11px]" aria-hidden="true" />
+      </a>
+    </div>
+    {recentArticles.length > 0 ? (
+      <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+        {recentArticles.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            date={article.data.date}
+            slug={article.id}
+            tags={article.data.tags}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-muted">Articles coming soon.</p>
+    )}
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-edge to-transparent" />
+
+  <!-- Selected Projects -->
+  <section class="py-12">
+    <div class="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.1em] text-dim">
+      <span class="flex items-center gap-1">
+        <i class="ph ph-code text-[13px]" aria-hidden="true" />
+        Open source
+      </span>
+      <a href="/projects" class="flex items-center gap-1 text-accent">
+        View all <i class="ph ph-arrow-right text-[11px]" aria-hidden="true" />
+      </a>
+    </div>
+    <div>
+      {featuredProjects.map((project) => (
+        <ProjectRow
+          name={project.data.name}
+          description={project.data.description}
+          tech={project.data.tech}
+          url={project.data.url}
+          repo={project.data.repo}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="mt-14 rounded-xl border border-edge bg-surface p-10">
+    <h2 class="mb-2 flex items-center gap-2.5 text-[22px] font-normal text-primary">
+      <i class="ph ph-chat-circle text-accent" aria-hidden="true" />
+      Let's talk
+    </h2>
+    <p class="mb-6 text-[15px] text-muted">
+      Available for consulting, architecture reviews, and technical leadership. Tell me about your project.
+    </p>
+    <ContactForm />
+  </section>
 </BaseLayout>
