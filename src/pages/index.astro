@@ -5,6 +5,7 @@ import Availability from "../components/Availability.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import ProjectRow from "../components/ProjectRow.astro";
 import ContactForm from "../components/ContactForm.astro";
+import FadeIn from "../components/FadeIn.astro";
 
 const allArticles = await getCollection("articles", ({ data }) => !data.draft);
 const recentArticles = allArticles
@@ -52,14 +53,16 @@ const featuredProjects = allProjects
     </div>
     {recentArticles.length > 0 ? (
       <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-        {recentArticles.map((article) => (
-          <ArticleCard
-            title={article.data.title}
-            description={article.data.description}
-            date={article.data.date}
-            slug={article.id}
-            tags={article.data.tags}
-          />
+        {recentArticles.map((article, i) => (
+          <FadeIn delay={i * 100}>
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              date={article.data.date}
+              slug={article.id}
+              tags={article.data.tags}
+            />
+          </FadeIn>
         ))}
       </div>
     ) : (
@@ -81,14 +84,16 @@ const featuredProjects = allProjects
       </a>
     </div>
     <div>
-      {featuredProjects.map((project) => (
-        <ProjectRow
-          name={project.data.name}
-          description={project.data.description}
-          tech={project.data.tech}
-          url={project.data.url}
-          repo={project.data.repo}
-        />
+      {featuredProjects.map((project, i) => (
+        <FadeIn delay={i * 80}>
+          <ProjectRow
+            name={project.data.name}
+            description={project.data.description}
+            tech={project.data.tech}
+            url={project.data.url}
+            repo={project.data.repo}
+          />
+        </FadeIn>
       ))}
     </div>
   </section>
