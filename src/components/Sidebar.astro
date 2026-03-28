@@ -103,40 +103,78 @@ function isActive(href: string, current: string): boolean {
       });
     </script>
     <div class="mt-auto border-t border-edge pt-4">
-      <button
-        class="mb-3 flex items-center gap-2 font-sans text-[13px] text-dim transition-colors duration-150 hover:text-secondary"
-        data-theme-toggle
-        aria-label="Toggle theme"
-      >
-        <i class="ph ph-sun-dim text-[16px]" data-theme-icon aria-hidden="true" />
-        <span data-theme-label>Light mode</span>
-      </button>
+      <div class="relative mb-3 flex h-8 w-full rounded-lg border border-edge bg-[var(--color-base)] p-0.5" data-theme-switch aria-label="Theme switcher" role="radiogroup">
+        <div class="absolute top-0.5 left-0.5 h-[calc(100%-4px)] w-[calc(33.333%-2px)] rounded-md bg-surface-hover transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]" data-theme-slider aria-hidden="true"></div>
+        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="light" role="radio" aria-label="Light mode">
+          <i class="ph ph-sun text-[15px]" aria-hidden="true"></i>
+        </button>
+        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="auto" role="radio" aria-label="Auto (system)">
+          <i class="ph ph-monitor text-[15px]" aria-hidden="true"></i>
+        </button>
+        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="dark" role="radio" aria-label="Dark mode">
+          <i class="ph ph-moon text-[15px]" aria-hidden="true"></i>
+        </button>
+      </div>
       <script>
-        function initThemeToggle() {
-          const btn = document.querySelector("[data-theme-toggle]");
-          const icon = document.querySelector("[data-theme-icon]");
-          const label = document.querySelector("[data-theme-label]");
-          if (!btn || !icon || !label) return;
-          if (btn.hasAttribute("data-theme-init")) return;
-          btn.setAttribute("data-theme-init", "");
+        function initThemeSwitch() {
+          const sw = document.querySelector("[data-theme-switch]");
+          if (!sw || sw.hasAttribute("data-theme-init")) return;
+          sw.setAttribute("data-theme-init", "");
+
+          const slider = sw.querySelector("[data-theme-slider]") as HTMLElement;
+          const opts = sw.querySelectorAll("[data-theme-opt]");
+          const positions = { light: "translateX(0%)", auto: "translateX(100%)", dark: "translateX(200%)" };
+
+          function getSystemTheme() {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          }
+
+          function applyTheme(pref: string) {
+            const resolved = pref === "auto" ? getSystemTheme() : pref;
+            document.documentElement.setAttribute("data-theme", resolved);
+          }
 
           function updateUI() {
-            const current = document.documentElement.getAttribute("data-theme") || "dark";
-            icon.className = current === "dark" ? "ph ph-sun-dim text-[16px]" : "ph ph-moon text-[16px]";
-            label.textContent = current === "dark" ? "Light mode" : "Dark mode";
+            const pref = localStorage.getItem("theme-pref") || "auto";
+            slider.style.transform = positions[pref as keyof typeof positions] || positions.auto;
+            opts.forEach((opt) => {
+              const val = opt.getAttribute("data-theme-opt");
+              if (val === pref) {
+                opt.classList.remove("text-dim");
+                opt.classList.add("text-primary");
+                opt.setAttribute("aria-checked", "true");
+              } else {
+                opt.classList.remove("text-primary");
+                opt.classList.add("text-dim");
+                opt.setAttribute("aria-checked", "false");
+              }
+            });
           }
-          updateUI();
 
-          btn.addEventListener("click", () => {
-            const current = document.documentElement.getAttribute("data-theme") || "dark";
-            const next = current === "dark" ? "light" : "dark";
-            document.documentElement.setAttribute("data-theme", next);
-            localStorage.setItem("theme", next);
-            updateUI();
+          opts.forEach((opt) => {
+            opt.addEventListener("click", () => {
+              const pref = opt.getAttribute("data-theme-opt") || "auto";
+              localStorage.setItem("theme-pref", pref);
+              if (pref === "auto") {
+                localStorage.removeItem("theme");
+              } else {
+                localStorage.setItem("theme", pref);
+              }
+              applyTheme(pref);
+              updateUI();
+            });
           });
+
+          window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+            const pref = localStorage.getItem("theme-pref") || "auto";
+            if (pref === "auto") applyTheme("auto");
+          });
+
+          updateUI();
+          applyTheme(localStorage.getItem("theme-pref") || "auto");
         }
-        initThemeToggle();
-        document.addEventListener("astro:after-swap", initThemeToggle);
+        initThemeSwitch();
+        document.addEventListener("astro:after-swap", initThemeSwitch);
       </script>
       <div class="mb-2.5 flex gap-3.5">
         <a href="https://github.com/rvanbaalen" class="text-dim text-lg transition-colors duration-150 hover:text-accent-bright" aria-label="GitHub">
