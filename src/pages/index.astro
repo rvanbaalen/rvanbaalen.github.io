@@ -19,16 +19,17 @@ const featuredProjects = allProjects
 ---
 
 <BaseLayout title="Robin van Baalen">
-  <!-- Intro -->
-  <section class="mb-16">
-    <p class="mb-5 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent">
+  <!-- Intro with subtle gradient atmosphere -->
+  <section class="relative mb-16">
+    <div class="pointer-events-none absolute -inset-x-40 -inset-y-20 z-[-1]" style={`background: radial-gradient(ellipse at 8% 15%, oklch(62% 0.04 260 / var(--gradient-intensity)), transparent 50%);`} aria-hidden="true" />
+    <p class="mb-5 flex items-center gap-2 font-sans text-[14px] font-medium text-accent">
       <i class="ph ph-hand-waving" aria-hidden="true" />
       Welcome
     </p>
-    <h1 class="mb-5 text-[34px] font-normal leading-tight tracking-tight text-primary">
+    <h1 class="mb-5 text-[60px] font-normal leading-[1.1] tracking-tight text-primary" data-kinetic-hero>
       I'm Robin. I build software and help teams ship better products.
     </h1>
-    <p class="max-w-xl text-[17px] leading-relaxed">
+    <p class="max-w-xl text-lg leading-relaxed">
       Almost two decades of shipping software across roles from lead developer to
       software architect to senior consultant. I write about what I learn and
       open-source what I build.
@@ -38,17 +39,42 @@ const featuredProjects = allProjects
     </div>
   </section>
 
+  <script>
+    function initKineticHero() {
+      const hero = document.querySelector("[data-kinetic-hero]");
+      if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (hero.hasAttribute("data-kinetic-done")) return;
+      hero.setAttribute("data-kinetic-done", "");
+
+      const text = hero.textContent || "";
+      const words = text.trim().split(/\s+/);
+      while (hero.firstChild) hero.removeChild(hero.firstChild);
+
+      words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.style.display = "inline-block";
+        span.style.opacity = "0";
+        span.style.transform = "translateY(10px)";
+        span.style.animation = `word-in 500ms cubic-bezier(0.22, 1, 0.36, 1) ${150 + i * 100}ms forwards`;
+        span.textContent = word + "\u00A0";
+        hero.appendChild(span);
+      });
+    }
+    initKineticHero();
+    document.addEventListener("astro:page-load", initKineticHero);
+  </script>
+
   <div class="h-px bg-gradient-to-r from-edge to-transparent" />
 
   <!-- Recent Articles -->
   <section class="py-12">
-    <div class="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.1em] text-dim">
-      <span class="flex items-center gap-1">
-        <i class="ph ph-article text-[13px]" aria-hidden="true" />
+    <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
+      <span class="flex items-center gap-1.5">
+        <i class="ph ph-article text-[15px]" aria-hidden="true" />
         Recent writing
       </span>
-      <a href="/articles" class="flex items-center gap-1 text-accent">
-        View all <i class="ph ph-arrow-right text-[11px]" aria-hidden="true" />
+      <a href="/articles" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
+        View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
       </a>
     </div>
     {recentArticles.length > 0 ? (
@@ -74,13 +100,13 @@ const featuredProjects = allProjects
 
   <!-- Selected Projects -->
   <section class="py-12">
-    <div class="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.1em] text-dim">
-      <span class="flex items-center gap-1">
-        <i class="ph ph-code text-[13px]" aria-hidden="true" />
+    <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
+      <span class="flex items-center gap-1.5">
+        <i class="ph ph-code text-[15px]" aria-hidden="true" />
         Open source
       </span>
-      <a href="/projects" class="flex items-center gap-1 text-accent">
-        View all <i class="ph ph-arrow-right text-[11px]" aria-hidden="true" />
+      <a href="/projects" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
+        View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
       </a>
     </div>
     <div>
@@ -99,12 +125,13 @@ const featuredProjects = allProjects
   </section>
 
   <!-- Contact -->
-  <section class="mt-14 rounded-xl border border-edge bg-surface p-10">
-    <h2 class="mb-2 flex items-center gap-2.5 text-[22px] font-normal text-primary">
-      <i class="ph ph-chat-circle text-accent" aria-hidden="true" />
+  <section class="relative mt-14 rounded-xl border border-edge bg-surface p-10 transition-colors duration-300">
+    <div class="pointer-events-none absolute -inset-x-20 -inset-y-10 z-[-1]" style={`background: radial-gradient(ellipse at 50% 40%, oklch(62% 0.04 260 / calc(var(--gradient-intensity) * 0.5)), transparent 40%);`} aria-hidden="true" />
+    <h2 class="mb-2 flex items-center gap-2.5 text-[28px] font-normal text-primary">
+      <i class="ph ph-chat-circle text-accent transition-colors duration-150" aria-hidden="true" />
       Let's talk
     </h2>
-    <p class="mb-6 text-[15px] text-muted">
+    <p class="mb-6 font-sans text-base text-muted">
       Available for consulting, architecture reviews, and technical leadership. Tell me about your project.
     </p>
     <ContactForm />
