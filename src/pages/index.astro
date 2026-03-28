@@ -1,30 +1,28 @@
 ---
-import { getCollection } from "astro:content";
-import "../styles/global.css";
-
-const projects = await getCollection("projects");
-const articles = await getCollection("articles");
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Availability from "../components/Availability.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Robin van Baalen</title>
-  </head>
-  <body class="bg-base text-secondary font-serif p-12">
-    <h1 class="text-3xl text-primary mb-8">Content Collections Test</h1>
-    <h2 class="text-xl text-accent font-mono mb-4">Projects ({projects.length})</h2>
-    <ul class="mb-8 space-y-2">
-      {projects.sort((a, b) => a.data.order - b.data.order).map((p) => (
-        <li class="text-muted">{p.data.name} — {p.data.tech.join(", ")}</li>
-      ))}
-    </ul>
-    <h2 class="text-xl text-accent font-mono mb-4">Articles ({articles.length})</h2>
-    <ul>
-      {articles.map((a) => (
-        <li class="text-muted">{a.data.title} — {a.data.date.toLocaleDateString()}</li>
-      ))}
-    </ul>
-  </body>
-</html>
+<BaseLayout title="Robin van Baalen">
+  <section class="mb-16">
+    <p class="mb-5 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent">
+      <i class="ph ph-hand-waving" aria-hidden="true" />
+      Welcome
+    </p>
+    <h1 class="mb-5 text-[34px] font-normal leading-tight tracking-tight text-primary">
+      I'm Robin. I build software and help teams ship better products.
+    </h1>
+    <p class="max-w-xl text-[17px] leading-relaxed">
+      Almost two decades of shipping software across roles from lead developer to
+      software architect to senior consultant. I write about what I learn and
+      open-source what I build.
+    </p>
+    <div class="mt-6">
+      <Availability />
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-edge to-transparent" />
+
+  <p class="py-12 text-muted">More sections coming soon.</p>
+</BaseLayout>
