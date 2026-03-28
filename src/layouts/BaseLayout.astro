@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import DotPattern from "../components/DotPattern.astro";
 import Sidebar from "../components/Sidebar.astro";
+import MobileNav from "../components/MobileNav.astro";
 
 interface Props {
   title: string;
@@ -60,5 +61,6 @@ const currentPath = Astro.url.pathname;
         <slot />
       </main>
     </div>
+    <MobileNav currentPath={currentPath} />
   </body>
 </html>
