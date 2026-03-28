@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  tech: string[];
+  url?: string;
+  repo: string;
+}
+
+const { name, description, tech, url, repo } = Astro.props;
+const href = url || repo;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group grid grid-cols-[1fr_auto] items-center gap-6 rounded-md border-b border-edge-subtle px-3.5 py-4 transition-colors duration-150 hover:bg-surface"
+>
+  <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3.5">
+    <span class="text-[15px] font-medium text-primary transition-colors duration-150 group-hover:text-accent-bright">
+      {name}
+    </span>
+    <span class="text-sm text-muted">{description}</span>
+  </div>
+  <span class="hidden font-mono text-[10px] uppercase tracking-widest text-dim sm:block">
+    {tech.join(" · ")}
+  </span>
+</a>
