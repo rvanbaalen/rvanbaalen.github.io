@@ -4,8 +4,11 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import posthog from "astro-posthog";
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: "https://robinvanbaalen.nl",
+
   integrations: [
     mdx(),
     sitemap(),
@@ -18,7 +21,10 @@ export default defineConfig({
         ]
       : []),
   ],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: cloudflare()
 });
