@@ -8,44 +8,44 @@
   method="POST"
   class="grid grid-cols-1 gap-2.5 sm:grid-cols-2"
 >
-  <label class="flex items-center gap-2 rounded-md border border-edge bg-base px-3.5 py-3 font-mono text-xs text-muted transition-colors duration-200 focus-within:border-accent-dim focus-within:text-secondary">
+  <label class="flex items-center gap-2 rounded-md border border-edge-subtle bg-base px-3.5 py-3 font-sans text-base text-muted transition-[border-color,box-shadow,color] duration-200 focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--color-accent-glow)] focus-within:text-secondary">
     <i class="ph ph-user text-sm text-dim transition-colors duration-200" aria-hidden="true" />
     <input
       type="text"
       name="name"
       placeholder="Name"
       required
-      class="w-full bg-transparent text-secondary placeholder:text-muted outline-none"
+      class="w-full bg-transparent text-secondary placeholder:text-dim outline-none"
     />
   </label>
-  <label class="flex items-center gap-2 rounded-md border border-edge bg-base px-3.5 py-3 font-mono text-xs text-muted transition-colors duration-200 focus-within:border-accent-dim focus-within:text-secondary">
+  <label class="flex items-center gap-2 rounded-md border border-edge-subtle bg-base px-3.5 py-3 font-sans text-base text-muted transition-[border-color,box-shadow,color] duration-200 focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--color-accent-glow)] focus-within:text-secondary">
     <i class="ph ph-at text-sm text-dim transition-colors duration-200" aria-hidden="true" />
     <input
       type="email"
       name="email"
       placeholder="Email"
       required
-      class="w-full bg-transparent text-secondary placeholder:text-muted outline-none"
+      class="w-full bg-transparent text-secondary placeholder:text-dim outline-none"
     />
   </label>
-  <label class="flex items-center gap-2 rounded-md border border-edge bg-base px-3.5 py-3 font-mono text-xs text-muted transition-colors duration-200 focus-within:border-accent-dim focus-within:text-secondary sm:col-span-2">
+  <label class="flex items-center gap-2 rounded-md border border-edge-subtle bg-base px-3.5 py-3 font-sans text-base text-muted transition-[border-color,box-shadow,color] duration-200 focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--color-accent-glow)] focus-within:text-secondary sm:col-span-2">
     <i class="ph ph-text-aa text-sm text-dim transition-colors duration-200" aria-hidden="true" />
     <input
       type="text"
       name="subject"
       placeholder="Subject"
       required
-      class="w-full bg-transparent text-secondary placeholder:text-muted outline-none"
+      class="w-full bg-transparent text-secondary placeholder:text-dim outline-none"
     />
   </label>
-  <label class="flex gap-2 rounded-md border border-edge bg-base px-3.5 pt-3 pb-3 font-mono text-xs text-muted transition-colors duration-200 focus-within:border-accent-dim focus-within:text-secondary sm:col-span-2">
+  <label class="flex gap-2 rounded-md border border-edge-subtle bg-base px-3.5 pt-3 pb-3 font-sans text-base text-muted transition-[border-color,box-shadow,color] duration-200 focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--color-accent-glow)] focus-within:text-secondary sm:col-span-2">
     <i class="ph ph-pencil-simple mt-0.5 text-sm text-dim transition-colors duration-200" aria-hidden="true" />
     <textarea
       name="message"
       placeholder="Your message..."
       required
       rows="5"
-      class="w-full resize-y bg-transparent text-secondary placeholder:text-muted outline-none"
+      class="w-full resize-y bg-transparent text-secondary placeholder:text-dim outline-none"
     />
   </label>
 
@@ -54,7 +54,7 @@
 
   <button
     type="submit"
-    class="flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 font-mono text-xs font-medium uppercase tracking-wide text-base transition-colors duration-150 hover:bg-accent-bright sm:col-span-2"
+    class="flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 font-sans text-base font-medium text-base transition-[background,transform,box-shadow] duration-150 hover:bg-accent-bright hover:-translate-y-px hover:shadow-[0_4px_12px_var(--color-accent-glow)] active:translate-y-0 sm:col-span-2"
   >
     <i class="ph ph-paper-plane-tilt" aria-hidden="true" />
     Send message

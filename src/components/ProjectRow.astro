@@ -15,17 +15,20 @@ const href = url || repo;
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="group block rounded-md border-b border-edge-subtle px-3.5 py-4 transition-colors duration-150 hover:bg-surface"
+  class="group flex items-center justify-between rounded-md px-4 py-4 transition-[background,transform] duration-150 hover:bg-surface-hover"
 >
-  <div class="flex items-baseline justify-between gap-4">
-    <span class="text-[15px] font-medium text-primary transition-colors duration-150 group-hover:text-accent-bright">
+  <div>
+    <span class="text-lg font-medium text-primary transition-colors duration-150 group-hover:text-accent-bright">
       {name}
     </span>
-    <span class="shrink-0 font-mono text-[10px] uppercase tracking-widest text-dim">
+    <p class="mt-0.5 font-sans text-base text-muted transition-colors duration-150 group-hover:text-secondary">
+      {description}
+    </p>
+  </div>
+  <div class="flex items-center gap-4 shrink-0">
+    <span class="font-sans text-[13px] text-dim">
       {tech.join(" · ")}
     </span>
+    <i class="ph ph-arrow-right text-dim opacity-0 -translate-x-1 transition-[opacity,transform] duration-150 group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true" />
   </div>
-  <p class="mt-1 text-sm leading-relaxed text-muted">
-    {description}
-  </p>
 </a>
