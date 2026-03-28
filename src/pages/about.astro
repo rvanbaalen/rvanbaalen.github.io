@@ -1,37 +1,44 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Availability from "../components/Availability.astro";
 ---
 
 <BaseLayout title="About — Robin van Baalen" description="About Robin van Baalen — software engineer, consultant, and builder with almost two decades of experience.">
   <h1 class="mb-6 text-3xl font-normal tracking-tight text-primary">About</h1>
   <div class="max-w-xl space-y-5 text-lg leading-relaxed">
     <p>
-      I'm Robin van Baalen, a software engineer and business owner with almost two decades
-      of experience in the industry. I've worked with a variety of companies in roles varying
-      from lead developer, software architect, and senior consultant.
+      I'm Robin van Baalen. I've been building software for almost twenty years,
+      across roles from developer to architect to consultant. But titles aren't
+      really the point.
     </p>
     <p>
-      I have a passion for using technology to solve real-world problems and create
-      innovative solutions. I develop a strong skill set in a range of programming
-      languages and frameworks, but I believe in reaching for the simplest tool that
-      gets the job done.
+      The point is that I genuinely love this. I follow the news obsessively, try
+      every new tool that comes out, and care deeply about the craft of making
+      software that works well. From AI-assisted development to system architecture,
+      from team dynamics to developer tooling... if it's happening in our industry,
+      I'm probably already playing with it.
     </p>
     <p>
-      I write about what I learn and open-source what I build. Most of my packages
-      are zero-dependency utilities that solve one problem well.
+      I write about what I learn here and open-source what I build. Most of my
+      packages are zero-dependency utilities that solve one problem well.
     </p>
     <p>
-      Currently available for consulting engagements, architecture reviews, and
-      technical leadership.
+      If you're working through a tricky architecture decision, curious what AI
+      can actually do for your team right now, or just want to bounce ideas off
+      someone who's seen a lot of codebases... I'd love to hear from you. No pitch,
+      no pressure. You'll walk away with something useful.
     </p>
   </div>
-  <div class="mt-10">
+  <div class="mt-8">
+    <Availability />
+  </div>
+  <div class="mt-8">
     <a
       href="/contact"
       class="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 font-sans text-[16px] font-medium text-[var(--color-base)] transition-[background,transform,box-shadow] duration-150 hover:bg-accent-bright hover:-translate-y-px hover:shadow-[0_4px_12px_var(--color-accent-glow)] active:translate-y-0"
     >
-      <i class="ph ph-envelope" aria-hidden="true" />
-      Get in touch
+      <i class="ph ph-coffee" aria-hidden="true" />
+      Let's talk
     </a>
   </div>
 </BaseLayout>
