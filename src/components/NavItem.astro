@@ -12,19 +12,12 @@ const { href, icon, label, active = false } = Astro.props;
 <a
   href={href}
   class:list={[
-    "relative flex items-center gap-2.5 py-2 pl-5 font-mono text-xs transition-colors duration-150",
-    active ? "text-accent" : "text-muted hover:text-primary",
+    "nav-item relative flex items-center gap-2.5 py-2 pl-5 font-mono text-xs transition-colors duration-200",
+    active ? "text-accent active" : "text-muted hover:text-primary",
   ]}
+  data-nav-item
+  data-active={active ? "true" : undefined}
 >
-  <span
-    class:list={[
-      "absolute left-0 top-1/2 -translate-y-1/2 h-1 w-1 rounded-full",
-      active
-        ? "bg-accent animate-[pulse-dot_2s_ease-in-out_infinite]"
-        : "bg-transparent",
-    ]}
-    aria-hidden="true"
-  />
   <i class={`ph ph-${icon} text-base w-[18px] text-center`} aria-hidden="true" />
   <span>{label}</span>
 </a>
