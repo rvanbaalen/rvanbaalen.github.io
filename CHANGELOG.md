@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.13.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.12.0...rvanbaalen.github.io-v1.13.0) (2026-03-28)
+
+
+### Features
+
+* add article card component ([4036afe](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/4036afe63e9134f02d62b3ddb05ec08e74a13cd5))
+* add article listing and individual article pages ([6d235fc](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/6d235fc5831a592e91bdf5567be003b05ff7c0ee))
+* add availability badge and home page intro section ([573bcbe](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/573bcbed56117c15196b028a5f44e107b68591f2))
+* add base layout with dot pattern background and analytics ([80d6238](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/80d6238bdbbdb47ce2925a1bea283a5f72a28898))
+* add cloudflare function for contact form with postmark ([d27671a](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/d27671a47ff49ab2cc1644bf3912d120921fc6b7))
+* add contact form component with turnstile ([94b57f9](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/94b57f9f75d66ccde8dc3866f721182ef852aa4e))
+* add content collections with project data and sample article ([fd39fcf](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/fd39fcf5cdb8e9092b66844703e8a116480ca2ec))
+* add design system and OKLCH theme tokens ([2c326de](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/2c326de2d34d93af3173160b5dc0d681f3005a89))
+* add floating sidebar with dot indicator navigation ([f70f7ce](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/f70f7ceaadf8c572dddd2e59494dc9fd69847149))
+* add posthog analytics via astro-posthog integration ([a5f8947](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/a5f89478856cafe52ba9850043e0cae32b1ca9ed))
+* add project row component ([8249647](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/824964706a02452d9506dbbc89d0d48294ba5357))
+* add projects, about, contact, and 404 pages ([f15e86c](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/f15e86cf417507d71846e8873d0061b0f654dbe9))
+* add responsive mobile bottom navigation ([de49bef](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/de49bef064ffa85296198cbda20fbbd0b799ed4b))
+* add rss feed and sitemap generation ([79fd1e6](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/79fd1e62b5f3465473856c50b85819fd64e337ac))
+* add scroll-triggered fade-in animations ([e5bf6d3](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/e5bf6d392e9a28503151b7804787e9f7eeb34766))
+* add self-hosted fonts and phosphor icons ([b280ceb](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/b280ceb291f2ba470e41c6301b3dd877d8747e25))
+* add view transitions for smooth nav dot animation between pages ([69ad15f](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/69ad15fd99c424d4268b35558828a6192e8eeff0))
+* assemble complete home page with articles, projects, and contact ([86086b3](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/86086b35692ad5774b28a2192776057b89eef239))
+* deploy to cloudflare via wrangler on release-please releases ([ec96539](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/ec965391c7f914355d25bffe90b34353d54074d3))
+* initialize astro 5 project with tailwind v4 ([8e8224c](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/8e8224cc5a2ab133781a0829378c1493bf9931c1))
+
+
+### Bug Fixes
+
+* add transitions to form inputs, local avatar, and floating nav dot ([931f2b5](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/931f2b598adc0f8b7c77a0b82146a8e76e84dbdd))
+* move contact handler from cloudflare function to astro api route ([dd863ca](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/dd863ca0960dedef8732859d0cde76b23f7980d8))
+* **qa:** ISSUE-001 — clean up project row layout with name/description stacking ([a4755e9](https://github.com/rvanbaalen/rvanbaalen.github.io/commit/a4755e9424ca6c36c2842472adf0b3895670c8e0))
+
 ## [1.12.0](https://github.com/rvanbaalen/rvanbaalen.github.io/compare/rvanbaalen.github.io-v1.11.0...rvanbaalen.github.io-v1.12.0) (2025-12-17)
 
 
