@@ -11,8 +11,8 @@ const navItems = [
   { href: "/", icon: "house", label: "Home" },
   { href: "/articles", icon: "article", label: "Articles" },
   { href: "/projects", icon: "code", label: "Projects" },
-  { href: "/about", icon: "user", label: "About" },
-  { href: "/contact", icon: "envelope", label: "Contact" },
+  { href: "/about", icon: "user-circle", label: "About" },
+  { href: "/contact", icon: "envelope-simple", label: "Contact" },
 ];
 
 function isActive(href: string, current: string): boolean {
@@ -22,7 +22,7 @@ function isActive(href: string, current: string): boolean {
 ---
 
 <div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:persist>
-  <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface p-8 pb-6 shadow-[0_8px_32px_oklch(0%_0_0/0.4)]">
+  <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface/70 backdrop-blur-[16px] p-8 pb-6 transition-colors duration-300">
     <img
       src="/images/avatar.png"
       alt="Robin van Baalen"
@@ -31,13 +31,12 @@ function isActive(href: string, current: string): boolean {
       height="56"
     />
     <p class="text-[15px] font-semibold text-primary">Robin van Baalen</p>
-    <p class="mb-7 text-[13px] leading-snug text-muted">
+    <p class="mb-7 font-sans text-[13px] leading-snug text-muted">
       Software engineer &amp; consultant. Building tools, writing code, solving problems.
     </p>
     <nav class="relative flex flex-1 flex-col gap-0.5" aria-label="Main navigation" data-sidebar-nav>
-      <!-- Floating active dot — transitions to the active nav item's position -->
       <span
-        class="absolute left-0 h-1 w-1 rounded-full bg-accent animate-[pulse-dot_2s_ease-in-out_infinite] transition-[top] duration-300 ease-out"
+        class="absolute left-0 h-1 w-1 rounded-full bg-accent-bright animate-[pulse-dot_2s_ease-in-out_infinite] transition-[top] duration-300 ease-out"
         data-nav-dot
         aria-hidden="true"
       />
@@ -61,10 +60,10 @@ function isActive(href: string, current: string): boolean {
           if (isActive) {
             item.setAttribute("data-active", "true");
             item.classList.remove("text-muted", "hover:text-primary");
-            item.classList.add("text-accent", "active");
+            item.classList.add("text-accent-bright", "active");
           } else {
             item.removeAttribute("data-active");
-            item.classList.remove("text-accent", "active");
+            item.classList.remove("text-accent-bright", "active");
             item.classList.add("text-muted", "hover:text-primary");
           }
         });
@@ -89,15 +88,48 @@ function isActive(href: string, current: string): boolean {
       document.addEventListener("astro:after-swap", positionNavDot);
     </script>
     <div class="mt-auto border-t border-edge pt-4">
+      <button
+        class="mb-3 flex items-center gap-2 font-sans text-[13px] text-dim transition-colors duration-150 hover:text-secondary"
+        data-theme-toggle
+        aria-label="Toggle theme"
+      >
+        <i class="ph ph-sun-dim text-base" data-theme-icon aria-hidden="true" />
+        <span data-theme-label>Light mode</span>
+      </button>
+      <script>
+        function initThemeToggle() {
+          const btn = document.querySelector("[data-theme-toggle]");
+          const icon = document.querySelector("[data-theme-icon]");
+          const label = document.querySelector("[data-theme-label]");
+          if (!btn || !icon || !label) return;
+
+          function updateUI() {
+            const current = document.documentElement.getAttribute("data-theme") || "dark";
+            icon.className = current === "dark" ? "ph ph-sun-dim text-base" : "ph ph-moon text-base";
+            label.textContent = current === "dark" ? "Light mode" : "Dark mode";
+          }
+          updateUI();
+
+          btn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme") || "dark";
+            const next = current === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            updateUI();
+          });
+        }
+        initThemeToggle();
+        document.addEventListener("astro:after-swap", initThemeToggle);
+      </script>
       <div class="mb-2.5 flex gap-3.5">
-        <a href="https://github.com/rvanbaalen" class="text-dim text-lg transition-colors duration-150 hover:text-accent" aria-label="GitHub">
+        <a href="https://github.com/rvanbaalen" class="text-dim text-lg transition-colors duration-150 hover:text-accent-bright" aria-label="GitHub">
           <i class="ph ph-github-logo" />
         </a>
-        <a href="https://www.linkedin.com/in/robinvanbaalen/" class="text-dim text-lg transition-colors duration-150 hover:text-accent" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/robinvanbaalen/" class="text-dim text-lg transition-colors duration-150 hover:text-accent-bright" aria-label="LinkedIn">
           <i class="ph ph-linkedin-logo" />
         </a>
       </div>
-      <p class="font-mono text-[10px] text-dim">&copy; 2026 Robin van Baalen</p>
+      <p class="font-sans text-[10px] text-dim">&copy; 2026 Robin van Baalen</p>
     </div>
   </aside>
 </div>

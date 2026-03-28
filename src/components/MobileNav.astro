@@ -9,8 +9,8 @@ const navItems = [
   { href: "/", icon: "house", label: "Home" },
   { href: "/articles", icon: "article", label: "Articles" },
   { href: "/projects", icon: "code", label: "Projects" },
-  { href: "/about", icon: "user", label: "About" },
-  { href: "/contact", icon: "envelope", label: "Contact" },
+  { href: "/about", icon: "user-circle", label: "About" },
+  { href: "/contact", icon: "envelope-simple", label: "Contact" },
 ];
 
 function isActive(href: string, current: string): boolean {
@@ -20,15 +20,15 @@ function isActive(href: string, current: string): boolean {
 ---
 
 <nav
-  class="fixed inset-x-0 bottom-0 z-50 flex items-center justify-around border-t border-edge bg-surface/95 px-2 py-2 backdrop-blur-sm md:hidden"
+  class="fixed inset-x-0 bottom-0 z-50 flex items-center justify-around border-t border-edge bg-surface/95 px-2 py-2 backdrop-blur-sm transition-colors duration-300 md:hidden"
   aria-label="Mobile navigation"
 >
   {navItems.map((item) => (
     <a
       href={item.href}
       class:list={[
-        "flex flex-col items-center gap-1 px-3 py-1 text-[10px] font-mono transition-colors duration-150",
-        isActive(item.href, currentPath) ? "text-accent" : "text-muted",
+        "flex flex-col items-center gap-1 px-3 py-1 font-sans text-[11px] transition-colors duration-150",
+        isActive(item.href, currentPath) ? "text-accent-bright" : "text-muted",
       ]}
     >
       <i class={`ph ph-${item.icon} text-lg`} aria-hidden="true" />
