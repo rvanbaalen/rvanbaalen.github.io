@@ -24,8 +24,8 @@ const categories = [
       .sort((a, b) => a.data.order - b.data.order);
     if (projects.length === 0) return null;
     return (
-      <section class="mb-12">
-        <h2 class="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-dim">{label}</h2>
+      <section class="mb-14">
+        <h2 class="mb-1 border-b border-edge-subtle pb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-dim">{label}</h2>
         <div>
           {projects.map((project) => (
             <ProjectRow
