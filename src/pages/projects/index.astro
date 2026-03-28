@@ -16,7 +16,7 @@ const categories = [
 
 <BaseLayout title="Projects — Robin van Baalen" description="Open source projects, NPM packages, CLI tools, and templates.">
   <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Projects</h1>
-  <p class="mb-10 text-muted">Open source tools, packages, and templates I've built.</p>
+  <p class="mb-10 text-lg text-muted">Open source tools, packages, and templates I've built.</p>
 
   {categories.map(({ key, label }) => {
     const projects = allProjects
@@ -25,7 +25,7 @@ const categories = [
     if (projects.length === 0) return null;
     return (
       <section class="mb-14">
-        <h2 class="mb-1 border-b border-edge-subtle pb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-dim">{label}</h2>
+        <h2 class="mb-1 border-b border-edge-subtle pb-3 font-sans text-[14px] font-medium text-dim">{label}</h2>
         <div>
           {projects.map((project) => (
             <ProjectRow
