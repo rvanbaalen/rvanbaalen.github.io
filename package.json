@@ -1,17 +1,17 @@
 {
-  "name": "rvanbaalen.github.io",
+  "name": "robinvanbaalen-website",
   "version": "1.12.0",
   "description": "Main repository for my personal website.",
   "homepage": "https://robinvanbaalen.nl/",
   "bugs": {
-    "url": "https://github.com/rvanbaalen/rvanbaalen.github.io/issues"
+    "url": "https://github.com/rvanbaalen/website/issues"
   },
   "engines": {
     "node": ">=22"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rvanbaalen/rvanbaalen.github.io.git"
+    "url": "git+https://github.com/rvanbaalen/website.git"
   },
   "license": "MIT",
   "author": "Robin van Baalen <robin@stylr.nl>",
