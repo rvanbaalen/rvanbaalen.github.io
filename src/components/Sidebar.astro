@@ -105,14 +105,17 @@ function isActive(href: string, current: string): boolean {
     <div class="mt-auto border-t border-edge pt-4">
       <div class="relative mb-3 flex h-8 w-full rounded-lg border border-edge bg-[var(--color-base)] p-0.5" data-theme-switch aria-label="Theme switcher" role="radiogroup">
         <div class="absolute top-0.5 left-0.5 h-[calc(100%-4px)] w-[calc(33.333%-2px)] rounded-md bg-surface-hover transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]" data-theme-slider aria-hidden="true"></div>
-        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="light" role="radio" aria-label="Light mode">
+        <button class="group relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="light" role="radio" aria-label="Light mode">
           <i class="ph ph-sun text-[15px]" aria-hidden="true"></i>
+          <span class="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-surface border border-edge px-2 py-0.5 font-sans text-[11px] text-muted opacity-0 transition-opacity duration-150 group-hover:opacity-100 whitespace-nowrap">Light</span>
         </button>
-        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="auto" role="radio" aria-label="Auto (system)">
+        <button class="group relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="auto" role="radio" aria-label="Auto (system)">
           <i class="ph ph-monitor text-[15px]" aria-hidden="true"></i>
+          <span class="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-surface border border-edge px-2 py-0.5 font-sans text-[11px] text-muted opacity-0 transition-opacity duration-150 group-hover:opacity-100 whitespace-nowrap">System</span>
         </button>
-        <button class="relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="dark" role="radio" aria-label="Dark mode">
+        <button class="group relative z-10 flex flex-1 cursor-pointer items-center justify-center rounded-md text-dim transition-colors duration-150 hover:text-secondary" data-theme-opt="dark" role="radio" aria-label="Dark mode">
           <i class="ph ph-moon text-[15px]" aria-hidden="true"></i>
+          <span class="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-surface border border-edge px-2 py-0.5 font-sans text-[11px] text-muted opacity-0 transition-opacity duration-150 group-hover:opacity-100 whitespace-nowrap">Dark</span>
         </button>
       </div>
       <script>
