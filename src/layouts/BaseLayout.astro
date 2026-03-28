@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import DotPattern from "../components/DotPattern.astro";
 import Sidebar from "../components/Sidebar.astro";
@@ -52,6 +53,7 @@ const currentPath = Astro.url.pathname;
     </script>
 
     <link rel="alternate" type="application/rss+xml" title="Robin van Baalen" href="/rss.xml" />
+    <ViewTransitions />
   </head>
   <body class="bg-base text-secondary font-serif leading-relaxed pb-16 md:pb-0">
     <DotPattern />

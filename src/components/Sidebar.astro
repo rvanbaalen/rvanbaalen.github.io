@@ -21,7 +21,7 @@ function isActive(href: string, current: string): boolean {
 }
 ---
 
-<div class="sticky top-0 h-screen p-4 pr-0 hidden md:block">
+<div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:persist>
   <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface p-8 pb-6 shadow-[0_8px_32px_oklch(0%_0_0/0.4)]">
     <img
       src="/images/avatar.png"
@@ -52,7 +52,26 @@ function isActive(href: string, current: string): boolean {
     </nav>
 
     <script>
+      function updateActiveNav() {
+        const path = window.location.pathname;
+        const items = document.querySelectorAll("[data-nav-item]");
+        items.forEach((item) => {
+          const href = item.getAttribute("href") || "";
+          const isActive = href === "/" ? path === "/" : path.startsWith(href);
+          if (isActive) {
+            item.setAttribute("data-active", "true");
+            item.classList.remove("text-muted", "hover:text-primary");
+            item.classList.add("text-accent", "active");
+          } else {
+            item.removeAttribute("data-active");
+            item.classList.remove("text-accent", "active");
+            item.classList.add("text-muted", "hover:text-primary");
+          }
+        });
+      }
+
       function positionNavDot() {
+        updateActiveNav();
         const nav = document.querySelector("[data-sidebar-nav]");
         const dot = document.querySelector("[data-nav-dot]") as HTMLElement;
         const active = document.querySelector("[data-nav-item][data-active]") as HTMLElement;
@@ -67,7 +86,7 @@ function isActive(href: string, current: string): boolean {
         dot.style.opacity = "1";
       }
       positionNavDot();
-      document.addEventListener("astro:page-load", positionNavDot);
+      document.addEventListener("astro:after-swap", positionNavDot);
     </script>
     <div class="mt-auto border-t border-edge pt-4">
       <div class="mb-2.5 flex gap-3.5">
