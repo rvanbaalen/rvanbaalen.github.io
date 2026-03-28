@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+  tags: string[];
+  readingTime?: string;
+}
+
+const { title, description, date, slug, tags, readingTime } = Astro.props;
+
+const formattedDate = date.toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric",
+});
+---
+
+<a
+  href={`/articles/${slug}`}
+  class="group block rounded-lg border border-edge bg-surface p-6 transition-[border-color,box-shadow] duration-200 hover:border-accent-dim hover:shadow-[0_0_24px_oklch(58.8%_0.158_241.966/0.05)]"
+>
+  <div class="mb-2.5 flex items-center gap-1.5 font-mono text-[11px] text-dim">
+    <i class="ph ph-calendar-blank text-xs" aria-hidden="true" />
+    <span>{formattedDate}</span>
+    {readingTime && (
+      <>
+        <span>&middot;</span>
+        <span>{readingTime}</span>
+      </>
+    )}
+  </div>
+  <h3 class="mb-2 text-[17px] font-medium leading-snug tracking-tight text-primary">
+    {title}
+  </h3>
+  <p class="text-sm leading-relaxed text-muted">{description}</p>
+  {tags.length > 0 && (
+    <span class="mt-2.5 inline-block rounded bg-accent-glow px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-accent">
+      {tags[0]}
+    </span>
+  )}
+</a>
