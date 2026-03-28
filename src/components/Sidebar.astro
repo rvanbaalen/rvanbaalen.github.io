@@ -1,0 +1,59 @@
+---
+import NavItem from "./NavItem.astro";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navItems = [
+  { href: "/", icon: "house", label: "Home" },
+  { href: "/articles", icon: "article", label: "Articles" },
+  { href: "/projects", icon: "code", label: "Projects" },
+  { href: "/about", icon: "user", label: "About" },
+  { href: "/contact", icon: "envelope", label: "Contact" },
+];
+
+function isActive(href: string, current: string): boolean {
+  if (href === "/") return current === "/";
+  return current.startsWith(href);
+}
+---
+
+<div class="sticky top-0 h-screen p-4 pr-0 hidden md:block">
+  <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface p-8 pb-6 shadow-[0_8px_32px_oklch(0%_0_0/0.4)]">
+    <img
+      src="https://github.com/rvanbaalen.png"
+      alt="Robin van Baalen"
+      class="mb-3.5 h-14 w-14 rounded-full border-2 border-edge"
+      width="56"
+      height="56"
+    />
+    <p class="text-[15px] font-semibold text-primary">Robin van Baalen</p>
+    <p class="mb-7 text-[13px] leading-snug text-muted">
+      Software engineer &amp; consultant. Building tools, writing code, solving problems.
+    </p>
+    <nav class="flex flex-1 flex-col gap-0.5" aria-label="Main navigation">
+      {navItems.map((item) => (
+        <NavItem
+          href={item.href}
+          icon={item.icon}
+          label={item.label}
+          active={isActive(item.href, currentPath)}
+        />
+      ))}
+    </nav>
+    <div class="mt-auto border-t border-edge pt-4">
+      <div class="mb-2.5 flex gap-3.5">
+        <a href="https://github.com/rvanbaalen" class="text-dim text-lg transition-colors duration-150 hover:text-accent" aria-label="GitHub">
+          <i class="ph ph-github-logo" />
+        </a>
+        <a href="https://www.linkedin.com/in/robinvanbaalen/" class="text-dim text-lg transition-colors duration-150 hover:text-accent" aria-label="LinkedIn">
+          <i class="ph ph-linkedin-logo" />
+        </a>
+      </div>
+      <p class="font-mono text-[10px] text-dim">&copy; 2026 Robin van Baalen</p>
+    </div>
+  </aside>
+</div>
