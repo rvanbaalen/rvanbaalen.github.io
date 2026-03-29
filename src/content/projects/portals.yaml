@@ -1,6 +1,5 @@
 name: Portals
 description: Lightweight, framework-agnostic portal system for creating modals, tooltips, and other overlay components
-url: https://robinvanbaalen.nl/portals
 repo: https://github.com/rvanbaalen/portals
 tech:
   - JavaScript
