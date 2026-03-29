@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
-
-const success = Astro.url.searchParams.get("success") === "true";
 ---
 
 <BaseLayout title="Contact — Robin van Baalen" description="Get in touch for consulting, architecture reviews, and technical leadership.">
@@ -11,19 +9,7 @@ const success = Astro.url.searchParams.get("success") === "true";
     Available for consulting, architecture reviews, and technical leadership.
     Tell me about your project and I'll get back to you.
   </p>
-  {success ? (
-    <div class="max-w-lg rounded-lg border border-green/30 bg-green/5 p-6">
-      <p class="flex items-center gap-2 text-lg font-medium text-primary">
-        <i class="ph ph-check-circle text-green" aria-hidden="true" />
-        Message sent
-      </p>
-      <p class="mt-2 text-muted">
-        Thanks for reaching out. I'll get back to you as soon as I can.
-      </p>
-    </div>
-  ) : (
-    <div class="max-w-lg">
-      <ContactForm />
-    </div>
-  )}
+  <div class="max-w-lg">
+    <ContactForm />
+  </div>
 </BaseLayout>

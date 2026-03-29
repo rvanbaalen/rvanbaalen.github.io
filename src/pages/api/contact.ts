@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 
 export const prerender = false;
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
     const name = formData.get("name") as string;
@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     const postmarkToken = import.meta.env.POSTMARK_API_TOKEN;
     const contactEmail = import.meta.env.CONTACT_EMAIL;
     if (postmarkToken && contactEmail) {
-      await fetch("https://api.postmarkapp.com/email", {
+      const emailResponse = await fetch("https://api.postmarkapp.com/email", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -59,9 +59,14 @@ export const POST: APIRoute = async ({ request, redirect }) => {
           MessageStream: "outbound",
         }),
       });
+      if (!emailResponse.ok) {
+        return new Response("Failed to send message. Please try again.", {
+          status: 500,
+        });
+      }
     }
 
-    return redirect("/contact?success=true", 303);
+    return new Response("OK", { status: 200 });
   } catch {
     return new Response("Something went wrong. Please try again.", {
       status: 500,
