@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.14.0](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.13.0...robinvanbaalen-website-v1.14.0) (2026-03-29)
+
+
+### Features
+
+* port 7 library project docs to integrated project pages ([59d87d5](https://github.com/rvanbaalen/website/commit/59d87d588556b8ae01120758d317d347efc5f371))
+
+
+### Bug Fixes
+
+* read MDX frontmatter props correctly in ProjectLayout ([0a2c4ba](https://github.com/rvanbaalen/website/commit/0a2c4bad6f2bf72be6e6f5cb78d8c6db9efa75fb))
+
 ## [1.13.0](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.12.0...robinvanbaalen-website-v1.13.0) (2026-03-29)
 
 
