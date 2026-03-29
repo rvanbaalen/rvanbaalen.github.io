@@ -1,6 +1,6 @@
 name: README to HTML
 description: Transforms README.md files into responsive, customizable HTML pages for GitHub Pages with minimal configuration
-url: https://robinvanbaalen.nl/readme-to-html/
+url: /projects/readme-to-html
 repo: https://github.com/rvanbaalen/readme-to-html
 tech:
   - TypeScript

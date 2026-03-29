@@ -1,0 +1,9 @@
+name: Debt Tracker
+description: Simple tool to track who owes who, with export/import support
+url: https://debt-tracker.robinvanbaalen.nl
+repo: https://github.com/rvanbaalen/debt-tracker
+tech:
+  - JavaScript
+  - Tailwind CSS
+category: standalone
+order: 4

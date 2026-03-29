@@ -1,6 +1,6 @@
 name: GitHub Runner Manager
 description: CLI to easily control GitHub self-hosted runners locally. Add, remove, start and stop runners without manually copying commands
-url: https://robinvanbaalen.nl/runner-manager/
+url: /projects/runner-manager
 repo: https://github.com/rvanbaalen/runner-manager
 tech:
   - JavaScript

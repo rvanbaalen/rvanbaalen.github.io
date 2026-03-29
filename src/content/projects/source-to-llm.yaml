@@ -1,6 +1,6 @@
 name: Source to LLM
 description: Utility to convert source code to a format suitable for LLM processing, making it easier to include code snippets in AI prompts
-url: https://robinvanbaalen.nl/source-to-llm
+url: /projects/source-to-llm
 repo: https://github.com/rvanbaalen/source-to-llm
 tech:
   - TypeScript

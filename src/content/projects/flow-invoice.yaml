@@ -1,0 +1,9 @@
+name: Flow Invoice
+description: View outstanding UTS/Flow invoices by account number
+url: https://flow-invoice.robinvanbaalen.nl
+repo: https://github.com/rvanbaalen/flow-invoice
+tech:
+  - Vue.js
+  - Tailwind CSS
+category: standalone
+order: 5

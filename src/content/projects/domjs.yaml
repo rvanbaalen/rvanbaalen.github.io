@@ -1,6 +1,6 @@
 name: DomJS
 description: Zero-dependency core DOM manipulation utilities in vanilla JavaScript
-url: https://robinvanbaalen.nl/domjs
+url: /projects/domjs
 repo: https://github.com/rvanbaalen/domjs
 tech:
   - JavaScript

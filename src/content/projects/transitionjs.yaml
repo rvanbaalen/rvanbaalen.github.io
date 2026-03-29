@@ -1,6 +1,6 @@
 name: TransitionJS
 description: Dead simple JavaScript functions to use TailwindCSS transitions without libraries
-url: https://robinvanbaalen.nl/transitionjs
+url: /projects/transitionjs
 repo: https://github.com/rvanbaalen/transitionjs
 tech:
   - JavaScript

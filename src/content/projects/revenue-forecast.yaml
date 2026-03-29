@@ -1,0 +1,10 @@
+name: Revenue Tracker
+description: Personal finance tracker with P&L, balance sheet, and cash flow reports
+url: https://revenue-forecast.robinvanbaalen.nl
+repo: https://github.com/rvanbaalen/revenue-forecast
+tech:
+  - React
+  - TypeScript
+  - Zustand
+category: standalone
+order: 2

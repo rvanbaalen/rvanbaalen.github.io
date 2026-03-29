@@ -9,12 +9,12 @@ interface Props {
 
 const { name, description, tech, url, repo } = Astro.props;
 const href = url || repo;
+const isExternal = href.startsWith("http");
 ---
 
 <a
   href={href}
-  target="_blank"
-  rel="noopener noreferrer"
+  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
   class="group flex items-center justify-between rounded-md px-4 py-4 transition-[background,transform] duration-150 hover:bg-surface-hover"
 >
   <div>

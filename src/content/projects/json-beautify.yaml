@@ -1,0 +1,10 @@
+name: JSON Beautifier
+description: Format, beautify, and compare your JSON data
+url: https://json-beautify.robinvanbaalen.nl
+repo: https://github.com/rvanbaalen/json-beautify
+tech:
+  - React
+  - TypeScript
+  - Tailwind CSS
+category: standalone
+order: 3
