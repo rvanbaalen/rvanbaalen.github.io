@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectRow from "../../components/ProjectRow.astro";
+
+const allProjects = await getCollection("projects");
+
+const categories = [
+  { key: "standalone", label: "Standalone Projects" },
+  { key: "package", label: "NPM Packages" },
+  { key: "cli", label: "CLI Tools" },
+  { key: "template", label: "Project Templates" },
+  { key: "archived", label: "Archived" },
+] as const;
+---
+
+<BaseLayout title="Open Source — Robin van Baalen" description="Tools, packages, and things I've built and shared.">
+  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Open Source</h1>
+  <p class="mb-10 text-lg text-muted">Tools, packages, and things I've built and shared.</p>
+
+  {categories.map(({ key, label }) => {
+    const projects = allProjects
+      .filter((p) => p.data.category === key)
+      .sort((a, b) => a.data.order - b.data.order);
+    if (projects.length === 0) return null;
+    return (
+      <section class="mb-14">
+        <h2 class="mb-1 border-b border-edge-subtle pb-3 font-sans text-[14px] font-medium text-dim">{label}</h2>
+        <div>
+          {projects.map((project) => (
+            <ProjectRow
+              name={project.data.name}
+              description={project.data.description}
+              tech={project.data.tech}
+              url={project.data.url}
+              repo={project.data.repo}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  })}
+</BaseLayout>

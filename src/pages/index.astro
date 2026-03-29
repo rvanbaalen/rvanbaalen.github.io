@@ -67,46 +67,14 @@ const featuredProjects = allProjects
 
   <div class="h-px bg-gradient-to-r from-edge to-transparent" />
 
-  <!-- Recent Articles -->
+  <!-- Selected Projects / Open Source -->
   <section class="py-12">
     <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
       <span class="flex items-center gap-1.5">
-        <i class="ph ph-article text-[15px]" aria-hidden="true" />
-        Recent writing
-      </span>
-      <a href="/articles" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
-        View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
-      </a>
-    </div>
-    {recentArticles.length > 0 ? (
-      <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-        {recentArticles.map((article, i) => (
-          <FadeIn delay={i * 100}>
-            <ArticleCard
-              title={article.data.title}
-              description={article.data.description}
-              date={article.data.date}
-              slug={article.id}
-              tags={article.data.tags}
-            />
-          </FadeIn>
-        ))}
-      </div>
-    ) : (
-      <p class="text-muted">Articles coming soon.</p>
-    )}
-  </section>
-
-  <div class="h-px bg-gradient-to-r from-edge to-transparent" />
-
-  <!-- Selected Projects -->
-  <section class="py-12">
-    <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
-      <span class="flex items-center gap-1.5">
-        <i class="ph ph-code text-[15px]" aria-hidden="true" />
+        <i class="ph ph-git-branch text-[15px]" aria-hidden="true" />
         Open source
       </span>
-      <a href="/projects" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
+      <a href="/open-source" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
         View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
       </a>
     </div>
@@ -125,8 +93,40 @@ const featuredProjects = allProjects
     </div>
   </section>
 
+  {recentArticles.length > 0 && (
+    <>
+      <div class="h-px bg-gradient-to-r from-edge to-transparent" />
+
+      <!-- Recent Writing -->
+      <section class="py-12">
+        <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
+          <span class="flex items-center gap-1.5">
+            <i class="ph ph-notebook text-[15px]" aria-hidden="true" />
+            Recent writing
+          </span>
+          <a href="/writing" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
+            View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
+          </a>
+        </div>
+        <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+          {recentArticles.map((article, i) => (
+            <FadeIn delay={i * 100}>
+              <ArticleCard
+                title={article.data.title}
+                description={article.data.description}
+                date={article.data.date}
+                slug={article.id}
+                tags={article.data.tags}
+              />
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    </>
+  )}
+
   <!-- Contact -->
-  <section class="relative mt-14 rounded-xl border border-edge bg-surface p-10 transition-colors duration-300">
+  <section id="contact" class="relative mt-14 rounded-xl border border-edge bg-surface p-10 transition-colors duration-300">
     <div class="pointer-events-none absolute -inset-x-20 -inset-y-10 z-[-1]" style={`background: radial-gradient(ellipse at 50% 40%, oklch(62% 0.04 260 / calc(var(--gradient-intensity) * 0.5)), transparent 40%);`} aria-hidden="true" />
     <h2 class="mb-2 flex items-center gap-2.5 text-[28px] font-normal text-primary">
       <i class="ph ph-coffee text-accent transition-colors duration-150" aria-hidden="true" />
