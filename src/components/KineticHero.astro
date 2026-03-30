@@ -1,0 +1,58 @@
+---
+interface Props {
+  transitionName?: string;
+}
+
+const { transitionName } = Astro.props;
+---
+
+<section class="relative mb-16">
+  <div class="pointer-events-none absolute -inset-x-6 -inset-y-20 z-[-1] sm:-inset-x-40" style={`background: radial-gradient(ellipse at 8% 15%, oklch(62% 0.04 260 / var(--gradient-intensity)), transparent 50%);`} aria-hidden="true" />
+  {transitionName ? (
+    <h1 class="mb-6 text-[36px] font-normal leading-[1.1] tracking-tight text-primary sm:text-[60px]" data-kinetic-hero transition:name={transitionName}>
+      <slot />
+    </h1>
+  ) : (
+    <h1 class="mb-6 text-[36px] font-normal leading-[1.1] tracking-tight text-primary sm:text-[60px]" data-kinetic-hero>
+      <slot />
+    </h1>
+  )}
+</section>
+
+<script>
+  let navigatedInternally = false;
+
+  function initKineticHero() {
+    const hero = document.querySelector("[data-kinetic-hero]");
+    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (hero.hasAttribute("data-kinetic-done")) return;
+    hero.setAttribute("data-kinetic-done", "");
+
+    // On internal navigation, view transitions handle the motion — skip word animation
+    if (navigatedInternally) {
+      navigatedInternally = false;
+      return;
+    }
+
+    const text = hero.textContent || "";
+    const words = text.trim().split(/\s+/);
+    while (hero.firstChild) hero.removeChild(hero.firstChild);
+
+    words.forEach((word, i) => {
+      const span = document.createElement("span");
+      span.style.display = "inline-block";
+      span.style.opacity = "0";
+      span.style.transform = "translateY(10px)";
+      span.style.animation = `word-in 500ms cubic-bezier(0.22, 1, 0.36, 1) ${150 + i * 100}ms forwards`;
+      span.textContent = word + "\u00A0";
+      hero.appendChild(span);
+    });
+  }
+
+  document.addEventListener("astro:before-swap", () => {
+    navigatedInternally = true;
+  });
+
+  initKineticHero();
+  document.addEventListener("astro:page-load", initKineticHero);
+</script>
