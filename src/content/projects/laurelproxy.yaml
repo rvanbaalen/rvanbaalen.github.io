@@ -8,4 +8,5 @@ tech:
   - React
   - SQLite
 category: standalone
+featured: true
 order: 1
