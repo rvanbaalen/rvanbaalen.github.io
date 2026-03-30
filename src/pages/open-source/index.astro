@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectRow from "../../components/ProjectRow.astro";
+import KineticHero from "../../components/KineticHero.astro";
 
 const allProjects = (await getCollection("projects")).filter((p) => !p.data.archived);
 
@@ -14,8 +15,9 @@ const categories = [
 ---
 
 <BaseLayout title="Open Source — Robin van Baalen" description="Tools, packages, and things I've built and shared.">
-  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary" transition:name="opensource-heading">Open Source</h1>
-  <p class="mb-10 text-lg text-muted">Tools, packages, and things I've built and shared.</p>
+  <KineticHero transitionName="nav-opensource">
+    Open Source
+  </KineticHero>
 
   {categories.map(({ key, label }) => {
     const projects = allProjects

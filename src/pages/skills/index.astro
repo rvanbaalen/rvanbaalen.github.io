@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SkillCard from "../../components/SkillCard.astro";
+import KineticHero from "../../components/KineticHero.astro";
 
 const allSkills = await getCollection("skills");
 
@@ -12,8 +13,10 @@ const categories = [
 ---
 
 <BaseLayout title="Agent Skills — Robin van Baalen" description="Claude Code agent skills and plugins. Install from the rvanbaalen/skills marketplace.">
-  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Agent Skills</h1>
-  <p class="mb-6 text-lg text-muted">
+  <KineticHero transitionName="nav-skills">
+    Agent Skills
+  </KineticHero>
+  <p class="-mt-10 mb-10 text-lg text-muted">
     Skills extend Claude Code with specialized capabilities, from micro-commits to Lottie animation generation.
     Each one is a plugin you install and invoke directly in your terminal.
   </p>

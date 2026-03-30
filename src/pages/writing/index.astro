@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleLedgerRow from "../../components/ArticleLedgerRow.astro";
 import FadeIn from "../../components/FadeIn.astro";
+import KineticHero from "../../components/KineticHero.astro";
 
 const articles = await getCollection("articles", ({ data }) => !data.draft);
 const sorted = articles.sort(
@@ -17,7 +18,9 @@ const realArticles = sorted.filter(
 
 <BaseLayout title="Writing — Robin van Baalen" description="Things I find interesting enough to write about.">
   <section>
-    <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary" transition:name="writing-heading">Writing</h1>
+    <KineticHero transitionName="nav-writing">
+      Writing
+    </KineticHero>
     {realArticles.length > 0 ? (
       <>
         <p class="mb-10 text-lg text-muted">I only write when something's worth reading.</p>

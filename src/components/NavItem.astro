@@ -4,9 +4,11 @@ interface Props {
   icon: string;
   label: string;
   active?: boolean;
+  transitionName?: string;
 }
 
-const { href, icon, label, active = false } = Astro.props;
+const { href, icon, label, active = false, transitionName } = Astro.props;
+const applyTransition = transitionName && !active;
 ---
 
 <a
@@ -19,5 +21,9 @@ const { href, icon, label, active = false } = Astro.props;
   data-active={active ? "true" : undefined}
 >
   <i class={`ph ph-${icon} text-[17px] w-[18px] text-center`} aria-hidden="true" />
-  <span>{label}</span>
+  {applyTransition ? (
+    <span transition:name={transitionName}>{label}</span>
+  ) : (
+    <span>{label}</span>
+  )}
 </a>

@@ -11,11 +11,11 @@ const { currentPath } = Astro.props;
 
 const navItems = [
   { href: "/", icon: "house", label: "Home" },
-  { href: "/open-source", icon: "git-branch", label: "Open Source" },
-  { href: "/skills", icon: "lightning", label: "Skills" },
-  { href: "/writing", icon: "notebook", label: "Writing" },
+  { href: "/open-source", icon: "git-branch", label: "Open Source", transitionName: "nav-opensource" },
+  { href: "/skills", icon: "lightning", label: "Agent Skills", transitionName: "nav-skills" },
+  { href: "/writing", icon: "notebook", label: "Writing", transitionName: "nav-writing" },
   { href: "/about", icon: "user-circle", label: "About" },
-  { href: "/contact", icon: "envelope-simple", label: "Contact" },
+  { href: "/contact", icon: "envelope-simple", label: "Contact", transitionName: "nav-contact" },
 ];
 
 function isActive(href: string, current: string): boolean {
@@ -24,7 +24,7 @@ function isActive(href: string, current: string): boolean {
 }
 ---
 
-<div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:persist>
+<div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:name="sidebar" transition:animate="none">
   <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface/70 backdrop-blur-[16px] p-8 pb-6 transition-colors duration-300">
     <div class="avatar-grayscale relative">
       <Image
@@ -55,6 +55,7 @@ function isActive(href: string, current: string): boolean {
           icon={item.icon}
           label={item.label}
           active={isActive(item.href, currentPath)}
+          transitionName={item.transitionName}
         />
       ))}
     </nav>

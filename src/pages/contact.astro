@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import KineticHero from "../components/KineticHero.astro";
 ---
 
 <BaseLayout title="Contact — Robin van Baalen" description="Find me on GitHub and LinkedIn.">
-  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Get in touch</h1>
-  <p class="mb-10 max-w-lg text-muted">
-    The easiest way to reach me is through one of these platforms.
-  </p>
+  <KineticHero transitionName="nav-contact">
+    Get in touch
+  </KineticHero>
   <div class="grid gap-6 sm:grid-cols-2">
     <a href="https://github.com/rvanbaalen" target="_blank" rel="noopener noreferrer" class="group flex flex-col gap-4 rounded-xl border border-edge bg-surface p-8 font-sans text-primary no-underline transition-colors duration-150 hover:border-accent-dim">
       <i class="ph ph-github-logo text-[40px] text-muted transition-colors duration-150 group-hover:text-accent" aria-hidden="true" />
