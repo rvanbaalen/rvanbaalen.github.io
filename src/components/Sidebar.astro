@@ -26,7 +26,7 @@ function isActive(href: string, current: string): boolean {
 
 <div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:persist>
   <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface/70 backdrop-blur-[16px] p-8 pb-6 transition-colors duration-300">
-    <div class="relative">
+    <div class="avatar-grayscale relative">
       <Image
         src={avatarImg}
         alt="Robin van Baalen"
@@ -39,9 +39,9 @@ function isActive(href: string, current: string): boolean {
         <path d="M200,224a96,96,0,0,1-96-96V32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
       </svg>
     </div>
-    <p class="text-[15px] font-semibold text-primary">Robin van Baalen</p>
+    <p class="mb-0.5 text-[15px] font-semibold text-primary">That's me.</p>
     <p class="mb-7 font-sans text-[13px] leading-snug text-muted">
-      Building software for almost thirty years. AI, bleeding edge tools, and the details that matter.
+      <span class="font-medium text-secondary">Founder and software engineer.</span> This is my passion, not just my job.
     </p>
     <nav class="relative flex flex-1 flex-col gap-0.5" aria-label="Main navigation" data-sidebar-nav>
       <span
