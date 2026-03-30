@@ -1,0 +1,83 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+name: "Agent Vision"
+description: "Give AI agents eyes on your screen"
+repo: "rvanbaalen/agent-vision"
+version: "0.1.0"
+tech: ["Swift", "macOS", "CLI"]
+---
+
+## Description
+
+Agent Vision is a macOS utility that enables AI agents to interact with screen content visually. It provides a visual feedback loop for UI development by allowing agents to capture specific screen regions and control interface elements through a CLI.
+
+Key capabilities:
+
+- **Screenshot capture** of marked screen regions on demand
+- **Element discovery** via the macOS Accessibility API and Vision OCR
+- **Focus-free control** — clicks, text input, keyboard commands, scrolling, and drag gestures without stealing user focus
+- **Isolated sessions** with UUIDs so multiple agents can work simultaneously
+
+## Installation
+
+Requires macOS 14+ (Sonoma) and Apple Silicon.
+
+```bash
+brew tap rvanbaalen/agent-vision
+brew install agent-vision
+```
+
+After installation, grant **Screen Recording** and **Accessibility** permissions in System Settings.
+
+## Usage
+
+Agents follow a "scan → act → re-scan" loop:
+
+```bash
+# Start a session
+SESSION=$(agent-vision start)
+
+# Wait for the user to select a screen region
+agent-vision wait --session $SESSION
+
+# Capture a screenshot
+agent-vision capture --session $SESSION
+
+# Discover interactive elements
+agent-vision elements --session $SESSION
+
+# Click an element by index
+agent-vision control click --element 3 --session $SESSION
+
+# Type text into the focused element
+agent-vision control type --text "Hello world" --session $SESSION
+
+# End the session
+agent-vision stop --session $SESSION
+```
+
+## CLI Commands
+
+| Command | Purpose |
+|---------|---------|
+| `start` | Launch a session, returns a UUID |
+| `wait` | Block until the user selects an area |
+| `capture` | Screenshot the selected region |
+| `calibrate` | Capture with coordinate crosshairs |
+| `preview` | Preview click coordinates visually |
+| `elements` | Discover interactive UI elements |
+| `control click` | Click an element or coordinate |
+| `control type` | Type text into an element |
+| `control key` | Send keyboard shortcuts |
+| `control scroll` | Scroll within the region |
+| `control drag` | Drag between two points |
+| `stop` | End the session |
+
+All commands except `start` require `--session <uuid>`.
+
+## How It Works
+
+- **Session management**: A floating toolbar lets the user mark a screen region with a dashed blue border (invisible to screenshots)
+- **Capture**: Uses `CGWindowListCreateImage` for pixel-perfect region screenshots
+- **Element discovery**: Combines the Accessibility API (interactive elements) and Vision OCR (static text) into a unified JSON output with roles, labels, and coordinates
+- **Input execution**: Actions are sent via JSON files and executed using the macOS CGEvent API with visual ripple feedback

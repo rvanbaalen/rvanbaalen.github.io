@@ -1,0 +1,12 @@
+name: Agent Vision
+description: Give AI agents eyes on your screen — a macOS utility for visual interaction with UI elements
+url: /projects/agent-vision
+repo: https://github.com/rvanbaalen/agent-vision
+tech:
+  - Swift
+  - macOS
+  - CLI
+category: standalone
+featured: true
+order: 0
+hover_detail: Visual feedback loop for AI agents
