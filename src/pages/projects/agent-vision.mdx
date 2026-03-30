@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
 name: "Agent Vision"
-description: "Give AI agents eyes on your screen"
+description: "Give AI agents eyes — and hands — on your screen"
 repo: "rvanbaalen/agent-vision"
 version: "0.1.0"
 tech: ["Swift", "macOS", "CLI"]
@@ -9,52 +9,88 @@ tech: ["Swift", "macOS", "CLI"]
 
 ## Description
 
-Agent Vision is a macOS utility that enables AI agents to interact with screen content visually. It provides a visual feedback loop for UI development by allowing agents to capture specific screen regions and control interface elements through a CLI.
+A macOS utility that gives AI agents eyes — and optionally hands — on your screen. Mark a region and any AI coding agent can take screenshots on demand or control the mouse and keyboard within that area, enabling visual feedback loops for UI development.
 
 Key capabilities:
 
 - **Screenshot capture** of marked screen regions on demand
 - **Element discovery** via the macOS Accessibility API and Vision OCR
 - **Focus-free control** — clicks, text input, keyboard commands, scrolling, and drag gestures without stealing user focus
-- **Isolated sessions** with UUIDs so multiple agents can work simultaneously
+- **Isolated sessions** with UUIDs so multiple agents can work simultaneously without interfering
+- **Annotated screenshots** with numbered badges on discovered elements for spatial context
 
 ## Installation
 
-Requires macOS 14+ (Sonoma) and Apple Silicon.
+Requires macOS 14+ (Sonoma), Apple Silicon, and Xcode 16+ (builds from source).
 
 ```bash
 brew tap rvanbaalen/agent-vision
 brew install agent-vision
 ```
 
-After installation, grant **Screen Recording** and **Accessibility** permissions in System Settings.
+After installation, grant permissions in System Settings > Privacy & Security:
+- **Screen Recording** — for capturing screenshots
+- **Accessibility** — for discovering and controlling UI elements
 
-## Usage
-
-Agents follow a "scan → act → re-scan" loop:
+## Quick Start
 
 ```bash
-# Start a session
-SESSION=$(agent-vision start)
+agent-vision start                                        # Prints session UUID, shows floating toolbar
+# Click "Select Window" to pick a window, or "Select Area" to drag-select a region
+agent-vision wait --session <uuid>                        # Blocks until area is selected
+agent-vision elements --session <uuid>                    # Discover clickable elements
+agent-vision control click --element 1 --session <uuid>   # Click (focus-free)
+agent-vision stop --session <uuid>                        # End session
+```
 
-# Wait for the user to select a screen region
+Every command (except `start`) requires `--session <uuid>`. Multiple agent instances can run separate sessions simultaneously without interfering.
+
+## Visual Feedback Loop
+
+The core workflow for UI development:
+
+```bash
+# Start a session and wait for area selection
+SESSION=$(agent-vision start)
 agent-vision wait --session $SESSION
 
-# Capture a screenshot
-agent-vision capture --session $SESSION
+# Capture reference state
+agent-vision capture --session $SESSION --output /tmp/before.png
 
+# Make code changes, wait for hot reload...
+
+# Capture the result and compare
+agent-vision capture --session $SESSION --output /tmp/after.png
+```
+
+## Screen Control
+
+Agents follow a **scan → act → re-scan** loop. Element indices change when the UI updates, so always re-scan after actions.
+
+```bash
 # Discover interactive elements
 agent-vision elements --session $SESSION
 
-# Click an element by index
+# Click by element index (focus-free, uses Accessibility API)
 agent-vision control click --element 3 --session $SESSION
 
-# Type text into the focused element
-agent-vision control type --text "Hello world" --session $SESSION
+# Type text into a field (focus-free, replaces field value)
+agent-vision control type --text "hello@example.com" --element 2 --session $SESSION
 
-# End the session
-agent-vision stop --session $SESSION
+# Keyboard shortcuts
+agent-vision control key --key "cmd+a" --session $SESSION
+
+# Scroll
+agent-vision control scroll --delta 0,-300 --session $SESSION
+
+# Drag (for mobile simulators — swipe up to scroll down)
+agent-vision control drag --from 200,500 --to 200,200 --session $SESSION
+
+# Re-scan after every action that changes the UI
+agent-vision elements --session $SESSION
 ```
+
+**Element targeting is focus-free.** When you use `--element N`, the agent interacts via the Accessibility API — the system cursor doesn't move and the user's active window stays focused. The user can keep working while the agent clicks buttons and fills forms. Manual `--at X,Y` coordinates are available as a fallback for custom-drawn UIs.
 
 ## CLI Commands
 
@@ -65,7 +101,7 @@ agent-vision stop --session $SESSION
 | `capture` | Screenshot the selected region |
 | `calibrate` | Capture with coordinate crosshairs |
 | `preview` | Preview click coordinates visually |
-| `elements` | Discover interactive UI elements |
+| `elements` | Discover interactive UI elements (with optional `--annotated` screenshots) |
 | `control click` | Click an element or coordinate |
 | `control type` | Type text into an element |
 | `control key` | Send keyboard shortcuts |
@@ -77,7 +113,10 @@ All commands except `start` require `--session <uuid>`.
 
 ## How It Works
 
-- **Session management**: A floating toolbar lets the user mark a screen region with a dashed blue border (invisible to screenshots)
-- **Capture**: Uses `CGWindowListCreateImage` for pixel-perfect region screenshots
-- **Element discovery**: Combines the Accessibility API (interactive elements) and Vision OCR (static text) into a unified JSON output with roles, labels, and coordinates
-- **Input execution**: Actions are sent via JSON files and executed using the macOS CGEvent API with visual ripple feedback
+- **Toolbar**: A floating macOS panel (like the built-in screenshot toolbar) that stays above all windows
+- **Area selection**: Full-screen overlay with crosshair cursor — click and drag to select, or hover and click to select an entire window
+- **Border**: A dashed blue border with "Agent Vision" label marks the active capture area — click-through and invisible to screenshots
+- **Capture**: Uses `CGWindowListCreateImage` for pixel-perfect region screenshots with the border overlay auto-excluded
+- **Element discovery**: Combines the Accessibility API (interactive elements) and Vision OCR (static text) into a unified JSON output with roles, labels, and exact coordinates
+- **Input execution**: Actions are sent via JSON files and executed using the macOS CGEvent API with visual ripple feedback. All coordinates are bounds-checked to stay within the selected area
+- **State**: The app and CLI communicate via `~/.agent-vision/state.json` for area coordinates and element data

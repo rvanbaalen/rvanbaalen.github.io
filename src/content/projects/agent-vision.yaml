@@ -1,5 +1,5 @@
 name: Agent Vision
-description: Give AI agents eyes on your screen — a macOS utility for visual interaction with UI elements
+description: Give AI agents eyes — and hands — on your screen. Mark a region and any AI agent can capture screenshots and control the mouse and keyboard within that area
 url: /projects/agent-vision
 repo: https://github.com/rvanbaalen/agent-vision
 tech:
@@ -9,4 +9,4 @@ tech:
 category: standalone
 featured: true
 order: 0
-hover_detail: Visual feedback loop for AI agents
+hover_detail: Screenshot capture + mouse/keyboard control for AI agents
