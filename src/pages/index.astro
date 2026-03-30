@@ -1,14 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Availability from "../components/Availability.astro";
-import ArticleCard from "../components/ArticleCard.astro";
+import ArticleLedgerRow from "../components/ArticleLedgerRow.astro";
 import ProjectRow from "../components/ProjectRow.astro";
 import ContactForm from "../components/ContactForm.astro";
 import FadeIn from "../components/FadeIn.astro";
 
 const allArticles = await getCollection("articles", ({ data }) => !data.draft);
-const recentArticles = allArticles
+const realArticles = allArticles
+  .filter((a) => a.body && a.body.trim().length > 100)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 
@@ -57,7 +57,7 @@ const featuredProjects = allProjects
   <!-- Selected Projects / Open Source -->
   <section class="py-12">
     <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
-      <span class="flex items-center gap-1.5">
+      <span class="flex items-center gap-1.5" transition:name="opensource-heading">
         <i class="ph ph-git-branch text-[15px]" aria-hidden="true" />
         Open source
       </span>
@@ -81,37 +81,38 @@ const featuredProjects = allProjects
     </div>
   </section>
 
-  {recentArticles.length > 0 && (
-    <>
-      <div class="h-px bg-gradient-to-r from-edge to-transparent" />
+  <div class="h-px bg-gradient-to-r from-edge to-transparent" />
 
-      <!-- Recent Writing -->
-      <section class="py-12">
-        <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
-          <span class="flex items-center gap-1.5">
-            <i class="ph ph-notebook text-[15px]" aria-hidden="true" />
-            Recent writing
-          </span>
-          <a href="/writing" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
-            View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
-          </a>
-        </div>
-        <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-          {recentArticles.map((article, i) => (
-            <FadeIn delay={i * 100}>
-              <ArticleCard
-                title={article.data.title}
-                description={article.data.description}
-                date={article.data.date}
-                slug={article.id}
-                tags={article.data.tags}
-              />
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-    </>
-  )}
+  <!-- Writing -->
+  <section class="py-12">
+    <div class="mb-6 flex items-center justify-between font-sans text-[14px] font-medium text-dim">
+      <span class="flex items-center gap-1.5" transition:name="writing-heading">
+        <i class="ph ph-notebook text-[15px]" aria-hidden="true" />
+        Writing
+      </span>
+      <a href="/writing" class="flex items-center gap-1 text-accent transition-[color,gap] duration-150 hover:text-accent-bright hover:gap-2">
+        View all <i class="ph ph-arrow-right text-[13px]" aria-hidden="true" />
+      </a>
+    </div>
+    {realArticles.length > 0 ? (
+      <div>
+        {realArticles.map((article, i) => (
+          <FadeIn delay={i * 80}>
+            <ArticleLedgerRow
+              title={article.data.title}
+              description={article.data.description}
+              date={article.data.date}
+              slug={article.id}
+            />
+          </FadeIn>
+        ))}
+      </div>
+    ) : (
+      <p class="px-4 text-muted">
+        Nothing here yet. I only publish things I'd actually want to read.
+      </p>
+    )}
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="relative mt-14 rounded-xl border border-edge bg-surface p-10 transition-colors duration-300">
