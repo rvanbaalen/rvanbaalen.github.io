@@ -141,6 +141,15 @@ All animations respect `prefers-reduced-motion: reduce`.
 - **Availability dot:** Pulsating glow, 2.5s infinite
 - **Scroll fade-in:** Sections fade up (16px translateY, long duration) via IntersectionObserver at 15% threshold
 
+### View Transitions
+All view transitions use Astro's built-in View Transitions API. Progressive enhancement — browsers without support fall back to instant page swap.
+- **Page crossfade:** `var(--dur-short)` (150ms), ease-out
+- **Shared elements (sidebar, section labels):** `var(--dur-medium)` (300ms), enter easing
+- **Hover reveal (project rows):** `var(--dur-short)` (150ms), ease-out, opacity + translateY(4px)
+- **Reduced motion:** Instant swap, no animation (handled by global prefers-reduced-motion reset)
+
+No new duration tokens. No new easing curves. Consistency is craft.
+
 ## Background Pattern
 SVG topographic contour lines (not dot grid):
 - Thin ellipses and paths simulating terrain contours
