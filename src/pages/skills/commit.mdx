@@ -1,0 +1,36 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Commit
+description: Micro-commit with conventional commit messages
+version: "1.2.1"
+author: Robin van Baalen
+invoke: "/rvanbaalen:commit"
+install: "commit@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use when you want to commit your changes as clean, atomic micro-commits with conventional commit messages. Instead of one big commit, this skill analyzes your diff, groups related files, and proposes individual commits for each logical change.
+
+## How it works
+
+1. Analyzes your staged and unstaged changes via `git status` and `git diff`
+2. Groups related files that belong together in a single commit
+3. Proposes a conventional commit message for each group (feat, fix, docs, etc.)
+4. Asks for approval before committing each group
+5. Pushes to remote if the branch tracks an upstream
+
+## Modes
+
+- **Interactive** — proposes each commit for your approval before executing
+- **Non-interactive** — commits in the background so you can keep working
+
+## Invoke
+
+```
+/rvanbaalen:commit
+/rvanbaalen:commit i    # interactive mode
+/rvanbaalen:commit ni   # non-interactive (background)
+```

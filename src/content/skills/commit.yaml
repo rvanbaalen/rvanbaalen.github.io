@@ -1,0 +1,8 @@
+name: Commit
+description: Micro-commit with conventional commit messages
+version: "1.2.1"
+author: Robin van Baalen
+invoke: "/rvanbaalen:commit"
+trigger: manual
+category: skill
+order: 1

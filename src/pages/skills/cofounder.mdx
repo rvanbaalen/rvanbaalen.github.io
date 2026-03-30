@@ -1,0 +1,40 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Cofounder
+description: Critical-thinking business co-founder that enforces prioritization and challenges assumptions
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/cofounder"
+install: "cofounder@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "agent"
+---
+
+## When to use
+
+Use when you need a thinking partner who pushes back. The Cofounder agent enforces prioritization, challenges assumptions, and becomes smarter the more you use it. It runs onboarding on first use, then adapts to your business context over time.
+
+## How it works
+
+The Cofounder is a multi-skill agent plugin. On first run, it triggers onboarding to understand your business, goals, and priorities. After that, you can spar on ideas, run check-ins, create action briefs, and review progress.
+
+## Sub-skills
+
+| Skill | Description | Invoke |
+|-------|-------------|--------|
+| cofounder | Orchestrator, entry point | `/cofounder` |
+| setup | Onboarding and reconfiguration | `/cofounder:setup` |
+| onboard | First-time business context gathering | `/cofounder:onboard` |
+| check-in | Daily, weekly, monthly, quarterly cadences | `/cofounder:check-in` |
+| spar | Stress-test ideas through the business filter | `/cofounder:spar` |
+| action-brief | Create scoped action briefs | `/cofounder:action-brief` |
+| review | Review state, progress, and priorities | `/cofounder:review` |
+
+## Getting started
+
+```
+/plugin install cofounder@rvanbaalen
+/cofounder
+```
+
+First run triggers onboarding automatically.

@@ -1,0 +1,8 @@
+name: Make Issue
+description: Create a GitHub issue with guided template, type, and label selection
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:make-issue"
+trigger: manual
+category: skill
+order: 3

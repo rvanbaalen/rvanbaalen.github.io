@@ -1,0 +1,8 @@
+name: Time Registration
+description: Git-based time registration summaries
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:time-registration"
+trigger: manual
+category: skill
+order: 4

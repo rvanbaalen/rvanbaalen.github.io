@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: SVG Precision
+description: Deterministic SVG generation, validation, and rendering
+version: "1.0.0"
+author: dkyazzentwatwa
+invoke: "/rvanbaalen:svg-precision"
+install: "svg-precision@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use for icons, diagrams, charts, UI mockups, or technical drawings that require structural correctness and cross-viewer compatibility. This skill generates SVGs from a strict JSON spec, validates them, and optionally renders PNG previews.
+
+## How it works
+
+1. Translates your request into a structured JSON spec (scene graph)
+2. Builds the SVG using deterministic rules
+3. Validates the output for structural correctness
+4. Optionally renders a PNG preview via CairoSVG
+
+## Design rules
+
+- Always sets explicit `viewBox`, `width`, and `height`
+- Prefers absolute coordinates over transforms
+- Keeps numbers sane (no NaN/inf, rounds to 3-4 decimals)
+- Reusable items go in `defs` (markers, gradients, clipPaths)
+- Avoids exotic filters unless required for cross-viewer safety
+
+## Default canvas sizes
+
+| Type | Size |
+|------|------|
+| Icons | 24x24 or 32x32 |
+| UI mockups | 1440x900 or 390x844 (mobile) |
+| Charts | 800x450 |
+| Diagrams | 1200x800 |
+
+## Invoke
+
+```
+/rvanbaalen:svg-precision
+```

@@ -1,0 +1,7 @@
+name: Driver.js Guide
+description: Product tours, onboarding flows, and element highlighting reference
+version: "1.0.0"
+author: Robin van Baalen
+trigger: auto
+category: skill
+order: 7

@@ -1,0 +1,8 @@
+name: SVG Precision
+description: Deterministic SVG generation, validation, and rendering
+version: "1.0.0"
+author: dkyazzentwatwa
+invoke: "/rvanbaalen:svg-precision"
+trigger: manual
+category: skill
+order: 9

@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: React Query
+description: TanStack Query v5 best practices, code review, and coding standards
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:react-query"
+install: "react-query@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use whenever you're writing or reviewing code that uses TanStack Query v5. The skill catches common anti-patterns, enforces best practices, and helps migrate from v4 patterns.
+
+## How it works
+
+Operates in two modes:
+
+### Review mode
+
+Audits existing code for critical issues and anti-patterns:
+- Server state copied to client state (`useState` + `useEffect` that copies query data)
+- `fetch()` without `response.ok` checking
+- Cache mutation via `setQueryData` without returning new references
+- Missing invalidation in `onSettled`
+- `gcTime` lower than `staleTime`
+- Scattered inline query keys instead of `queryOptions` factories
+
+### Coding mode
+
+Enforces strict v5 patterns when writing new code:
+- `queryOptions` factories for type-safe, reusable query definitions
+- Proper query key hierarchies
+- Correct mutation callback separation
+- Suspense integration with React 19
+
+## Invoke
+
+```
+/rvanbaalen:react-query
+```
+
+Also auto-triggers when it detects `@tanstack/react-query` imports in your code.

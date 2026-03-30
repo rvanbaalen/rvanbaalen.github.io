@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Lottie Animator
+description: Generate professional Lottie animations from static SVGs
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:lottie-animator"
+install: "lottie-animator@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use when you need to animate SVGs into Lottie JSON without After Effects. Supports logo animations, loading spinners, icon transitions, character rigs, morphing, path drawing, and frame-by-frame techniques.
+
+## How it works
+
+1. Reads and analyzes your SVG's path structure
+2. Determines the right animation approach (wiggle, bounce, rotate, pulse, morph, trim path, etc.)
+3. Converts SVG paths to Lottie vertex format with proper bezier curves
+4. Generates a valid Lottie JSON file ready for `lottie-web` or any Lottie player
+
+## Supported effects
+
+- Wiggle, bounce, rotate, pulse, fade, scale
+- Shape morphing (icon transitions)
+- Trim path (drawing/reveal animations)
+- Character animation and walk cycles
+- Entrance, loop, and loading animations
+- Professional bezier curve easing
+
+## Invoke
+
+```
+/rvanbaalen:lottie-animator
+```

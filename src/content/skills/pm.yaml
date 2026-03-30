@@ -1,0 +1,8 @@
+name: PM
+description: Delivery-focused project manager that enforces deadlines and tracks estimates
+version: "2.0.1"
+author: Robin van Baalen
+invoke: "/pm"
+trigger: manual
+category: agent
+order: 11

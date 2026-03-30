@@ -28,4 +28,18 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { articles, projects };
+const skills = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/skills" }),
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    version: z.string(),
+    author: z.string(),
+    invoke: z.string().optional(),
+    trigger: z.enum(["manual", "auto"]).default("manual"),
+    category: z.enum(["skill", "agent"]).default("skill"),
+    order: z.number().default(0),
+  }),
+});
+
+export const collections = { articles, projects, skills };

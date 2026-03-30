@@ -1,0 +1,34 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Version Bump
+description: Auto-suggest semver version bumps for changed plugins before pushing
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:version-bump"
+install: "version-bump@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use before pushing changes in a marketplace project. The skill detects which plugins have changed, analyzes the diff to determine the appropriate semver bump level, and updates version numbers in both `plugin.json` and `marketplace.json`.
+
+## How it works
+
+1. Compares your branch against the upstream to find changed plugin files
+2. For each affected plugin, reads the current version
+3. Analyzes the actual diff to categorize changes:
+   - **Patch** — typo fixes, description updates, bug fixes
+   - **Minor** — new skills, new features, significant additions
+   - **Major** — renamed/removed skills, breaking changes
+4. Suggests a bump level and asks for confirmation
+5. Updates version in both `plugin.json` and `marketplace.json`
+
+## Invoke
+
+Triggers automatically when you push in a marketplace project, or invoke manually:
+
+```
+/rvanbaalen:version-bump
+```

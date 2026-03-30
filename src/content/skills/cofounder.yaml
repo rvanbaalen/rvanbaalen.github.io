@@ -1,0 +1,8 @@
+name: Cofounder
+description: Critical-thinking business co-founder that enforces prioritization and challenges assumptions
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/cofounder"
+trigger: manual
+category: agent
+order: 10

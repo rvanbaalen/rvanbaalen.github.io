@@ -1,0 +1,109 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  frontmatter: {
+    name: string;
+    description: string;
+    version: string;
+    author: string;
+    invoke?: string;
+    install: string;
+    repo: string;
+    category?: "skill" | "agent";
+  };
+}
+
+const { name, description, version, author, invoke, install, repo, category = "skill" } = Astro.props.frontmatter;
+const installCmd = `/plugin install ${install}`;
+const categoryLabel = category === "agent" ? "Agent Plugin" : "Skill";
+---
+
+<BaseLayout title={`${name} — Agent Skills — Robin van Baalen`} description={description}>
+  <article>
+    <header class="mb-10">
+      <a
+        href="/skills"
+        class="mb-6 inline-flex items-center gap-1.5 font-sans text-[14px] text-muted transition-colors duration-150 hover:text-accent"
+      >
+        <i class="ph ph-arrow-left text-[13px]" aria-hidden="true" />
+        All skills
+      </a>
+      <h1 class="mb-3 text-3xl font-normal leading-tight tracking-tight text-primary md:text-4xl">
+        {name}
+      </h1>
+      <p class="mb-4 text-lg text-muted">{description}</p>
+      <div class="flex flex-wrap items-center gap-3 font-sans text-[13px] text-dim">
+        <span class="rounded bg-accent-subtle px-2.5 py-0.5 font-medium text-accent-bright">
+          v{version}
+        </span>
+        <span class="rounded bg-surface px-2.5 py-0.5 text-muted">
+          {categoryLabel}
+        </span>
+        <span class="flex items-center gap-1">
+          <i class="ph ph-user text-[13px]" aria-hidden="true" />
+          {author}
+        </span>
+        {invoke && (
+          <code class="rounded bg-surface px-2.5 py-0.5 font-mono text-[12px] text-muted">
+            {invoke}
+          </code>
+        )}
+        <a
+          href={`https://github.com/${repo}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-accent transition-colors duration-150 hover:text-accent-bright"
+        >
+          <i class="ph ph-github-logo text-sm" aria-hidden="true" />
+          Source
+        </a>
+      </div>
+
+      <div class="mt-6 flex items-center gap-2 rounded-lg border border-edge bg-[var(--color-base)] px-4 py-3">
+        <code class="flex-1 font-mono text-sm text-secondary">{installCmd}</code>
+        <button
+          type="button"
+          class="copy-install-detail flex shrink-0 cursor-pointer items-center gap-1.5 rounded-md border border-edge bg-surface px-3 py-1.5 font-sans text-[13px] text-muted transition-[background,border-color,color] duration-150 hover:border-accent-dim hover:text-accent-bright"
+          data-install-cmd={installCmd}
+          aria-label="Copy install command"
+        >
+          <i class="ph ph-copy text-[14px] copy-icon" aria-hidden="true" />
+          <span class="copy-label" aria-live="polite">Copy</span>
+        </button>
+      </div>
+    </header>
+    <div class="prose prose-invert max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-primary prose-p:text-secondary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-accent-bright prose-code:font-mono prose-code:text-[0.9em] prose-pre:bg-surface prose-pre:border prose-pre:border-edge prose-strong:text-primary prose-blockquote:border-accent-dim prose-blockquote:text-muted prose-li:text-secondary prose-th:text-primary prose-td:text-secondary">
+      <slot />
+    </div>
+  </article>
+
+  <script>
+    function initDetailCopy() {
+      document.querySelectorAll('.copy-install-detail').forEach((btn) => {
+        if (btn.hasAttribute('data-copy-init')) return;
+        btn.setAttribute('data-copy-init', '');
+
+        btn.addEventListener('click', async () => {
+          const cmd = btn.getAttribute('data-install-cmd');
+          if (!cmd) return;
+          const label = btn.querySelector('.copy-label');
+          const icon = btn.querySelector('.copy-icon');
+          try {
+            await navigator.clipboard.writeText(cmd);
+            if (label) label.textContent = 'Copied!';
+            if (icon) { icon.classList.remove('ph-copy'); icon.classList.add('ph-check'); }
+          } catch {
+            if (label) label.textContent = cmd;
+          }
+          setTimeout(() => {
+            if (label) label.textContent = 'Copy';
+            if (icon) { icon.classList.remove('ph-check'); icon.classList.add('ph-copy'); }
+          }, 2000);
+        });
+      });
+    }
+    initDetailCopy();
+    document.addEventListener('astro:after-swap', initDetailCopy);
+  </script>
+</BaseLayout>

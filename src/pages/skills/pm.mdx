@@ -1,0 +1,48 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: PM
+description: Delivery-focused project manager that enforces deadlines and tracks estimates
+version: "2.0.1"
+author: Robin van Baalen
+invoke: "/pm"
+install: "pm@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "agent"
+---
+
+## When to use
+
+Use when you need accountability on deadlines and delivery. The PM agent tracks estimates vs. actuals, detects anti-patterns (scope creep, gold plating, yak shaving), and adapts its tone based on timeline pressure: supportive when there's slack, blunt when you're overdue.
+
+## How it works
+
+The PM is a multi-skill agent plugin. On first run, it sets up your project with milestones and estimates. From there, it journals each session, tracks progress, and flags when things are drifting. Existing v1.x projects are migrated automatically.
+
+## Sub-skills
+
+| Skill | Description | Invoke |
+|-------|-------------|--------|
+| pm | Orchestrator, entry point | `/pm` |
+| setup | Project onboarding and reconfiguration | `/pm:setup` |
+| plan | Define milestones, tasks, and estimates | `/pm:plan` |
+| session-start | Check-in with timeline health and journal logging | `/pm:session-start` |
+| session-end | Journal-based reconciliation with background sub-agents | `/pm:session-end` |
+| review | Progress analysis, estimation accuracy, time tracking | `/pm:review` |
+| reprioritize | Reshuffle tasks to protect deadlines | `/pm:reprioritize` |
+| status-report | Export-ready status for clients, teams, or personal logs | `/pm:status-report` |
+
+## What's new in v2.0
+
+- Persistent session journaling
+- Self-reflect validation
+- Ask-first estimation protocol
+- Automatic version migration from v1.x
+
+## Getting started
+
+```
+/plugin install pm@rvanbaalen
+/pm
+```
+
+First run triggers project setup automatically.

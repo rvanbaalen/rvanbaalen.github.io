@@ -1,0 +1,8 @@
+name: React Query
+description: TanStack Query v5 best practices, code review, and coding standards
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:react-query"
+trigger: manual
+category: skill
+order: 6

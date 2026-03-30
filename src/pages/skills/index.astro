@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SkillCard from "../../components/SkillCard.astro";
+
+const allSkills = await getCollection("skills");
+
+const categories = [
+  { key: "skill", label: "Skills" },
+  { key: "agent", label: "Agent Plugins" },
+] as const;
+---
+
+<BaseLayout title="Agent Skills — Robin van Baalen" description="Claude Code agent skills and plugins. Install from the rvanbaalen/skills marketplace.">
+  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Agent Skills</h1>
+  <p class="mb-6 text-lg text-muted">
+    Skills extend Claude Code with specialized capabilities, from micro-commits to Lottie animation generation.
+    Each one is a plugin you install and invoke directly in your terminal.
+  </p>
+
+  <div class="mb-10 rounded-lg border border-edge bg-[var(--color-base)] px-4 py-3">
+    <p class="mb-2 font-sans text-[13px] text-dim">Install the full marketplace:</p>
+    <div class="flex items-center gap-2">
+      <code class="flex-1 font-mono text-sm text-secondary">/plugin marketplace add rvanbaalen/skills</code>
+      <button
+        type="button"
+        class="copy-marketplace flex shrink-0 cursor-pointer items-center gap-1.5 rounded-md border border-edge bg-surface px-3 py-1.5 font-sans text-[13px] text-muted transition-[background,border-color,color] duration-150 hover:border-accent-dim hover:text-accent-bright"
+        data-install-cmd="/plugin marketplace add rvanbaalen/skills"
+        aria-label="Copy marketplace install command"
+      >
+        <i class="ph ph-copy text-[14px] copy-icon" aria-hidden="true" />
+        <span class="copy-label" aria-live="polite">Copy</span>
+      </button>
+    </div>
+  </div>
+
+  {categories.map(({ key, label }) => {
+    const skills = allSkills
+      .filter((s) => s.data.category === key)
+      .sort((a, b) => a.data.order - b.data.order);
+    if (skills.length === 0) return null;
+    return (
+      <section class="mb-14">
+        <h2 class="mb-4 border-b border-edge-subtle pb-3 font-sans text-[14px] font-medium text-dim">{label}</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          {skills.map((skill) => (
+            <SkillCard
+              name={skill.data.name}
+              description={skill.data.description}
+              version={skill.data.version}
+              author={skill.data.author}
+              invoke={skill.data.invoke}
+              trigger={skill.data.trigger}
+              slug={skill.id}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  })}
+
+  <script>
+    function initMarketplaceCopy() {
+      document.querySelectorAll('.copy-marketplace').forEach((btn) => {
+        if (btn.hasAttribute('data-copy-init')) return;
+        btn.setAttribute('data-copy-init', '');
+
+        btn.addEventListener('click', async () => {
+          const cmd = btn.getAttribute('data-install-cmd');
+          if (!cmd) return;
+          const label = btn.querySelector('.copy-label');
+          const icon = btn.querySelector('.copy-icon');
+          try {
+            await navigator.clipboard.writeText(cmd);
+            if (label) label.textContent = 'Copied!';
+            if (icon) { icon.classList.remove('ph-copy'); icon.classList.add('ph-check'); }
+          } catch {
+            if (label) label.textContent = cmd;
+          }
+          setTimeout(() => {
+            if (label) label.textContent = 'Copy';
+            if (icon) { icon.classList.remove('ph-check'); icon.classList.add('ph-copy'); }
+          }, 2000);
+        });
+      });
+    }
+    initMarketplaceCopy();
+    document.addEventListener('astro:after-swap', initMarketplaceCopy);
+  </script>
+</BaseLayout>

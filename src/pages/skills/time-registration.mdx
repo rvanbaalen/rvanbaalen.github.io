@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Time Registration
+description: Git-based time registration summaries
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:time-registration"
+install: "time-registration@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use when you need a quick summary of what you worked on for time sheets, standups, or status updates. Reads your git history and distills it into a single human-readable line.
+
+## How it works
+
+1. Parses your time period argument (defaults to "yesterday")
+2. Queries `git log` for your commits in that range
+3. Groups related commits into logical work items
+4. Produces a comma-separated summary in past-tense, plain English
+
+## Example output
+
+```
+Implemented user authentication, fixed pagination bug on dashboard, upgraded React from 18 to 19
+```
+
+## Invoke
+
+```
+/rvanbaalen:time-registration            # yesterday
+/rvanbaalen:time-registration last 3 days
+/rvanbaalen:time-registration this week
+/rvanbaalen:time-registration last week
+```
