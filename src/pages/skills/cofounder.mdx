@@ -2,7 +2,7 @@
 layout: ../../layouts/SkillLayout.astro
 name: Cofounder
 description: Critical-thinking business co-founder that enforces prioritization and challenges assumptions
-version: "1.0.0"
+version: "1.1.0"
 author: Robin van Baalen
 invoke: "/cofounder"
 install: "cofounder@rvanbaalen"
@@ -12,22 +12,26 @@ category: "agent"
 
 ## When to use
 
-Use when you need a thinking partner who pushes back. The Cofounder agent enforces prioritization, challenges assumptions, and becomes smarter the more you use it. It runs onboarding on first use, then adapts to your business context over time.
+Use when you need a thinking partner who pushes back. The Cofounder agent enforces prioritization, challenges assumptions, and holds you accountable. It grounds itself in your actual business context on first run, then gets sharper the more you use it. Useful for check-ins, sparring on ideas, reviewing progress, or doing focused business work.
 
 ## How it works
 
-The Cofounder is a multi-skill agent plugin. On first run, it triggers onboarding to understand your business, goals, and priorities. After that, you can spar on ideas, run check-ins, create action briefs, and review progress.
+1. On launch, the orchestrator generates a project-scoped ID from your working directory so multiple cofounder instances can coexist across projects.
+2. If this is your first run, it triggers setup and onboarding to understand your business, goals, and primary metric.
+3. If a legacy (unscoped) config exists, it automatically migrates your data to the new project-scoped location.
+4. Once configured, it validates your workspace structure and spawns the cofounder agent with full business context.
+5. From there you can spar on ideas, run cadence-based check-ins, create action briefs, or review progress and priorities.
 
 ## Sub-skills
 
 | Skill | Description | Invoke |
 |-------|-------------|--------|
-| cofounder | Orchestrator, entry point | `/cofounder` |
+| cofounder | Orchestrator and entry point | `/cofounder` |
 | setup | Onboarding and reconfiguration | `/cofounder:setup` |
 | onboard | First-time business context gathering | `/cofounder:onboard` |
 | check-in | Daily, weekly, monthly, quarterly cadences | `/cofounder:check-in` |
 | spar | Stress-test ideas through the business filter | `/cofounder:spar` |
-| action-brief | Create scoped action briefs | `/cofounder:action-brief` |
+| action-brief | Create scoped action briefs from conversations | `/cofounder:action-brief` |
 | review | Review state, progress, and priorities | `/cofounder:review` |
 
 ## Getting started
@@ -38,3 +42,18 @@ The Cofounder is a multi-skill agent plugin. On first run, it triggers onboardin
 ```
 
 First run triggers onboarding automatically.
+
+## What's new in v1.1
+
+- **Per-project scoping.** Config and workspace data are now scoped by project directory, so multiple cofounder instances can coexist on the same machine without conflicts.
+- **Automatic legacy migration.** Existing unscoped configs are detected and moved to the new project-scoped location on first run.
+- **Improved config validation.** The orchestrator now verifies the workspace structure before spawning the agent and offers clear recovery options if anything is missing.
+
+## Invoke
+
+```
+/cofounder
+/cofounder What should I focus on this week?
+/cofounder:spar I'm thinking about adding a freemium tier
+/cofounder:check-in
+```

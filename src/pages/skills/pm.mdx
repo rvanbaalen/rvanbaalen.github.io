@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/SkillLayout.astro
 name: PM
-description: Delivery-focused project manager that enforces deadlines and tracks estimates
-version: "2.0.1"
+description: Delivery-focused project manager that enforces deadlines, tracks estimates, detects drift, and holds you accountable
+version: "2.0.0"
 author: Robin van Baalen
 invoke: "/pm"
 install: "pm@rvanbaalen"
@@ -12,17 +12,23 @@ category: "agent"
 
 ## When to use
 
-Use when you need accountability on deadlines and delivery. The PM agent tracks estimates vs. actuals, detects anti-patterns (scope creep, gold plating, yak shaving), and adapts its tone based on timeline pressure: supportive when there's slack, blunt when you're overdue.
+Use when you need accountability on deadlines and delivery. The PM agent tracks estimates vs. actuals, detects anti-patterns (scope creep, gold plating, yak shaving), and adapts its tone based on timeline pressure: supportive when there's slack, blunt when you're overdue. It scales from a single task to a full project breakdown with milestones, and journals every session so nothing slips through the cracks.
 
 ## How it works
 
-The PM is a multi-skill agent plugin. On first run, it sets up your project with milestones and estimates. From there, it journals each session, tracks progress, and flags when things are drifting. Existing v1.x projects are migrated automatically.
+1. **Bootstrap** — On invocation, the orchestrator computes a project hash from your working directory, loads (or creates) a config file, and runs any version migrations needed.
+2. **Setup** — First run triggers project onboarding: you define the project name, role, hard deadline, and initial data scaffolding.
+3. **Plan** — Define milestones, tasks, and estimates. The agent always asks you for estimates rather than guessing, and attaches deadlines to everything.
+4. **Session start** — Each session opens with a timeline health check, plan alignment validation, and a journal entry.
+5. **Work** — During the session the PM monitors progress, flags drift, and holds you to your own estimates.
+6. **Session end** — The journal is reconciled against structured files, actual durations are computed from timestamps, and background sub-agents handle cleanup.
+7. **Review** — On-demand progress analysis: timeline health, estimation accuracy, blocker history, and recommendations.
 
 ## Sub-skills
 
 | Skill | Description | Invoke |
 |-------|-------------|--------|
-| pm | Orchestrator, entry point | `/pm` |
+| pm | Orchestrator and entry point | `/pm` |
 | setup | Project onboarding and reconfiguration | `/pm:setup` |
 | plan | Define milestones, tasks, and estimates | `/pm:plan` |
 | session-start | Check-in with timeline health and journal logging | `/pm:session-start` |
@@ -33,10 +39,12 @@ The PM is a multi-skill agent plugin. On first run, it sets up your project with
 
 ## What's new in v2.0
 
-- Persistent session journaling
-- Self-reflect validation
-- Ask-first estimation protocol
-- Automatic version migration from v1.x
+- Context bootstrapping with project hashing and automatic config detection
+- Persistent session journaling with timestamp-based duration tracking
+- Planning state verification before every session
+- Automatic version migration from v1.x projects
+- Ask-first estimation protocol — the agent never guesses your estimates
+- Self-reflect validation after structural changes
 
 ## Getting started
 
@@ -46,3 +54,10 @@ The PM is a multi-skill agent plugin. On first run, it sets up your project with
 ```
 
 First run triggers project setup automatically.
+
+## Invoke
+
+```
+/pm
+/pm check timeline health and flag any overdue tasks
+```

@@ -1,6 +1,6 @@
 name: Cofounder
-description: Critical-thinking business co-founder that enforces prioritization and challenges assumptions
-version: "1.0.0"
+description: Critical-thinking business co-founder that enforces prioritization, challenges assumptions, and becomes smarter over time
+version: "1.1.0"
 author: Robin van Baalen
 invoke: "/cofounder"
 trigger: manual
