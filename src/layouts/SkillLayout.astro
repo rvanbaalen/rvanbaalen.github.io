@@ -60,8 +60,8 @@ const categoryLabel = category === "agent" ? "Agent Plugin" : "Skill";
         </a>
       </div>
 
-      <div class="mt-6 flex items-center gap-2 rounded-lg border border-edge bg-[var(--color-base)] px-4 py-3">
-        <code class="flex-1 font-mono text-sm text-secondary">{installCmd}</code>
+      <div class="mt-6 flex items-center gap-2 overflow-hidden rounded-lg border border-edge bg-[var(--color-base)] px-4 py-3">
+        <code class="min-w-0 flex-1 overflow-x-auto font-mono text-sm text-secondary">{installCmd}</code>
         <button
           type="button"
           class="copy-install-detail flex shrink-0 cursor-pointer items-center gap-1.5 rounded-md border border-edge bg-surface px-3 py-1.5 font-sans text-[13px] text-muted transition-[background,border-color,color] duration-150 hover:border-accent-dim hover:text-accent-bright"
