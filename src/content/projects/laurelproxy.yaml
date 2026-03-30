@@ -1,0 +1,11 @@
+name: Laurel Proxy
+description: LLM-friendly local MITM-style HTTP proxy server
+url: https://laurelproxy.robinvanbaalen.nl
+repo: https://github.com/rvanbaalen/laurelproxy
+tech:
+  - TypeScript
+  - Express
+  - React
+  - SQLite
+category: standalone
+order: 1
