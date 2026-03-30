@@ -1,32 +1,48 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ArticleCard from "../../components/ArticleCard.astro";
+import ArticleLedgerRow from "../../components/ArticleLedgerRow.astro";
+import FadeIn from "../../components/FadeIn.astro";
 
 const articles = await getCollection("articles", ({ data }) => !data.draft);
 const sorted = articles.sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+
+// Filter out placeholder articles (no real content)
+const realArticles = sorted.filter(
+  (a) => a.body && a.body.trim().length > 100
+);
 ---
 
 <BaseLayout title="Writing — Robin van Baalen" description="Things I find interesting enough to write about.">
   <section>
-    <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Writing</h1>
-    <p class="mb-10 text-lg text-muted">Things I find interesting enough to write about.</p>
-    {sorted.length > 0 ? (
-      <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-        {sorted.map((article) => (
-          <ArticleCard
-            title={article.data.title}
-            description={article.data.description}
-            date={article.data.date}
-            slug={article.id}
-            tags={article.data.tags}
-          />
-        ))}
-      </div>
+    <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary" transition:name="writing-heading">Writing</h1>
+    {realArticles.length > 0 ? (
+      <>
+        <p class="mb-10 text-lg text-muted">I only write when something's worth reading.</p>
+        <div>
+          {realArticles.map((article, i) => (
+            <FadeIn delay={i * 80}>
+              <ArticleLedgerRow
+                title={article.data.title}
+                description={article.data.description}
+                date={article.data.date}
+                slug={article.id}
+              />
+            </FadeIn>
+          ))}
+        </div>
+      </>
     ) : (
-      <p class="text-muted">Articles coming soon.</p>
+      <div class="mt-16 mb-16">
+        <p class="text-lg text-muted">
+          Nothing here yet. I only publish things I'd actually want to read.
+        </p>
+        <p class="mt-2 font-sans text-[14px] text-dim">
+          The bar is high. Check back later.
+        </p>
+      </div>
     )}
   </section>
 </BaseLayout>
