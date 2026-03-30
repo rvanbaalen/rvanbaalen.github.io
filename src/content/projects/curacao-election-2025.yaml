@@ -5,6 +5,6 @@ repo: https://github.com/rvanbaalen/curacao-election-2025
 tech:
   - HTML
   - JavaScript
-category: archived
+category: standalone
 archived: true
 order: 15

@@ -20,7 +20,7 @@ const projects = defineCollection({
     url: z.string().optional(),
     repo: z.string(),
     tech: z.array(z.string()),
-    category: z.enum(["standalone", "package", "template", "cli", "archived"]),
+    category: z.enum(["standalone", "package", "template", "cli"]),
     featured: z.boolean().default(false),
     archived: z.boolean().default(false),
     order: z.number().default(0),

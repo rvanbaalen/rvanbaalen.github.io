@@ -4,4 +4,5 @@ repo: https://github.com/rvanbaalen/custom-scroll
 tech:
   - JavaScript
 category: package
+archived: true
 order: 6

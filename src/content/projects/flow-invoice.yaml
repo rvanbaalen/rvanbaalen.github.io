@@ -6,4 +6,5 @@ tech:
   - Vue.js
   - Tailwind CSS
 category: standalone
+archived: true
 order: 5

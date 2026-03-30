@@ -3,14 +3,13 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectRow from "../../components/ProjectRow.astro";
 
-const allProjects = await getCollection("projects");
+const allProjects = (await getCollection("projects")).filter((p) => !p.data.archived);
 
 const categories = [
   { key: "standalone", label: "Standalone Projects" },
   { key: "package", label: "NPM Packages" },
   { key: "cli", label: "CLI Tools" },
   { key: "template", label: "Project Templates" },
-  { key: "archived", label: "Archived" },
 ] as const;
 ---
 
@@ -40,4 +39,17 @@ const categories = [
       </section>
     );
   })}
+
+  <section class="mb-14">
+    <h2 class="mb-1 border-b border-edge-subtle pb-3 font-sans text-[14px] font-medium text-dim">Archive</h2>
+    <a href="/open-source/archive" class="group flex items-center justify-between rounded-md px-4 py-4 transition-[background,transform] duration-150 hover:bg-surface-hover">
+      <div>
+        <span class="text-lg font-medium text-primary transition-colors duration-150 group-hover:text-accent-bright">Browse the archive</span>
+        <p class="mt-0.5 font-sans text-base text-muted transition-colors duration-150 group-hover:text-secondary">The graveyard of ideas, side projects and experiments.</p>
+      </div>
+      <div class="flex items-center gap-4 shrink-0">
+        <i class="ph ph-arrow-right text-dim opacity-0 -translate-x-1 transition-[opacity,transform] duration-150 group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true" />
+      </div>
+    </a>
+  </section>
 </BaseLayout>

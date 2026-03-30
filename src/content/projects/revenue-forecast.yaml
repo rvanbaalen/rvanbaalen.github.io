@@ -7,4 +7,5 @@ tech:
   - TypeScript
   - Zustand
 category: standalone
+archived: false
 order: 2
