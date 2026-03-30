@@ -5,9 +5,10 @@ interface Props {
   tech: string[];
   url?: string;
   repo: string;
+  hoverDetail?: string;
 }
 
-const { name, description, tech, url, repo } = Astro.props;
+const { name, description, tech, url, repo, hoverDetail } = Astro.props;
 const href = url || repo;
 const isExternal = href.startsWith("http");
 ---
@@ -24,6 +25,11 @@ const isExternal = href.startsWith("http");
     <p class="mt-0.5 font-sans text-base text-muted transition-colors duration-150 group-hover:text-secondary">
       {description}
     </p>
+    {hoverDetail && (
+      <p class="mt-1 max-h-0 overflow-hidden font-sans text-[13px] text-dim opacity-0 translate-y-1 transition-[max-height,opacity,transform] duration-150 group-hover:max-h-8 group-hover:opacity-100 group-hover:translate-y-0">
+        {hoverDetail}
+      </p>
+    )}
   </div>
   <div class="flex items-center gap-4 shrink-0">
     <span class="font-sans text-[13px] text-dim">
