@@ -1,40 +1,46 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Availability from "../components/Availability.astro";
 ---
 
-<BaseLayout title="About — Robin van Baalen" description="Software engineer, architect, consultant. Building tools, writing code, solving problems.">
-  <h1 class="mb-10 text-3xl font-normal tracking-tight text-primary">About</h1>
+<BaseLayout title="About — Robin van Baalen" description="Almost thirty years building software. AI, bleeding edge tools, and an obsession with the details that shape how software feels.">
+  <section class="relative mb-16">
+    <div class="pointer-events-none absolute -inset-x-6 -inset-y-20 z-[-1] sm:-inset-x-40" style={`background: radial-gradient(ellipse at 8% 15%, oklch(62% 0.04 260 / var(--gradient-intensity)), transparent 50%);`} aria-hidden="true" />
+    <h1 class="mb-6 text-[36px] font-normal leading-[1.1] tracking-tight text-primary sm:text-[60px]" data-kinetic-hero>
+      I build because I love it.
+    </h1>
+  </section>
 
-  <div class="max-w-xl space-y-10">
-    <div>
-      <p class="text-lg text-primary font-medium leading-snug">
-        I architect systems, build tools, and help teams ship software that doesn't fall apart.
-      </p>
-      <p class="mt-2 text-base text-muted">
-        Developer, architect, consultant. The title changes, the work doesn't. I solve problems, build what's needed, and move on to the next one.
-      </p>
-    </div>
+  <script>
+    function initKineticHero() {
+      const hero = document.querySelector("[data-kinetic-hero]");
+      if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (hero.hasAttribute("data-kinetic-done")) return;
+      hero.setAttribute("data-kinetic-done", "");
 
-    <div>
-      <p class="text-lg text-primary font-medium leading-snug">
-        I care about the craft.
-      </p>
-      <p class="mt-2 text-base text-muted">
-        Clean APIs, thoughtful defaults, documentation that respects your time. The details are the product.
-      </p>
-    </div>
+      const text = hero.textContent || "";
+      const words = text.trim().split(/\s+/);
+      while (hero.firstChild) hero.removeChild(hero.firstChild);
 
-    <div>
-      <p class="text-lg text-primary font-medium leading-snug">
-        Right now, I'm building with AI every day.
-      </p>
-      <p class="mt-2 text-base text-muted">
-        Not because it's trendy. Because it fundamentally changes what a single person can build. I read every changelog, try every new tool, and care about the craft of making software.
-      </p>
-    </div>
-  </div>
-  <div class="mt-10">
-    <Availability />
+      words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.style.display = "inline-block";
+        span.style.opacity = "0";
+        span.style.transform = "translateY(10px)";
+        span.style.animation = `word-in 500ms cubic-bezier(0.22, 1, 0.36, 1) ${150 + i * 100}ms forwards`;
+        span.textContent = word + "\u00A0";
+        hero.appendChild(span);
+      });
+    }
+    initKineticHero();
+    document.addEventListener("astro:page-load", initKineticHero);
+  </script>
+
+  <div class="max-w-xl space-y-6">
+    <p class="text-lg text-primary leading-relaxed">
+      I've been building software for almost thirty years — it's my work, my passion, and my hobby. The tools keep getting better, and right now they're moving faster than ever.
+    </p>
+    <p class="text-lg text-primary leading-relaxed">
+      AI redefined what a single builder can ship. I use it every day, stay on the bleeding edge, and build things that weren't possible a year ago. But what hasn't changed is what I care about: the details. The tiniest transition, the spacing between elements, the right color scheme — that's not polish, that's the product.
+    </p>
   </div>
 </BaseLayout>

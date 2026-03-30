@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import NavItem from "./NavItem.astro";
+import avatarImg from "../../public/images/avatar.png";
 
 interface Props {
   currentPath: string;
@@ -24,16 +26,22 @@ function isActive(href: string, current: string): boolean {
 
 <div class="sticky top-0 h-screen p-4 pr-0 hidden md:block" transition:persist>
   <aside class="flex h-full flex-col rounded-xl border border-edge bg-surface/70 backdrop-blur-[16px] p-8 pb-6 transition-colors duration-300">
-    <img
-      src="/images/avatar.png"
-      alt="Robin van Baalen"
-      class="mb-3.5 h-14 w-14 rounded-full border-2 border-edge"
-      width="56"
-      height="56"
-    />
+    <div class="relative">
+      <Image
+        src={avatarImg}
+        alt="Robin van Baalen"
+        class="mb-3.5 h-40 w-40 rounded-full border-2 border-edge"
+        width={160}
+        height={160}
+      />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="absolute left-1 bottom-3 h-14 w-14 rotate-[50deg] text-accent-dim" aria-hidden="true">
+        <polyline points="152 80 104 32 56 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <path d="M200,224a96,96,0,0,1-96-96V32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+      </svg>
+    </div>
     <p class="text-[15px] font-semibold text-primary">Robin van Baalen</p>
     <p class="mb-7 font-sans text-[13px] leading-snug text-muted">
-      Software engineer &amp; consultant. Building tools, writing code, solving problems.
+      Building software for almost thirty years. AI, bleeding edge tools, and the details that matter.
     </p>
     <nav class="relative flex flex-1 flex-col gap-0.5" aria-label="Main navigation" data-sidebar-nav>
       <span

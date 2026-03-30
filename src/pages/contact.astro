@@ -1,15 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactForm from "../components/ContactForm.astro";
 ---
 
-<BaseLayout title="Contact — Robin van Baalen" description="Get in touch for consulting, architecture reviews, and technical leadership.">
-  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Contact</h1>
+<BaseLayout title="Contact — Robin van Baalen" description="Find me on GitHub and LinkedIn.">
+  <h1 class="mb-2 text-3xl font-normal tracking-tight text-primary">Get in touch</h1>
   <p class="mb-10 max-w-lg text-muted">
-    Available for consulting, architecture reviews, and technical leadership.
-    Tell me about your project and I'll get back to you.
+    The easiest way to reach me is through one of these platforms.
   </p>
-  <div class="max-w-lg">
-    <ContactForm />
+  <div class="grid gap-6 sm:grid-cols-2">
+    <a href="https://github.com/rvanbaalen" target="_blank" rel="noopener noreferrer" class="group flex flex-col gap-4 rounded-xl border border-edge bg-surface p-8 font-sans text-primary no-underline transition-colors duration-150 hover:border-accent-dim">
+      <i class="ph ph-github-logo text-[40px] text-muted transition-colors duration-150 group-hover:text-accent" aria-hidden="true" />
+      <div>
+        <span class="block text-xl font-medium transition-colors duration-150 group-hover:text-accent">GitHub</span>
+        <span class="block mt-1 text-sm text-muted">@rvanbaalen</span>
+        <span class="block mt-3 text-sm text-muted">Open source projects, tools, and experiments.</span>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/robinvanbaalen/" target="_blank" rel="noopener noreferrer" class="group flex flex-col gap-4 rounded-xl border border-edge bg-surface p-8 font-sans text-primary no-underline transition-colors duration-150 hover:border-accent-dim">
+      <i class="ph ph-linkedin-logo text-[40px] text-muted transition-colors duration-150 group-hover:text-accent" aria-hidden="true" />
+      <div>
+        <span class="block text-xl font-medium transition-colors duration-150 group-hover:text-accent">LinkedIn</span>
+        <span class="block mt-1 text-sm text-muted">Robin van Baalen</span>
+        <span class="block mt-3 text-sm text-muted">Professional background and connect directly.</span>
+      </div>
+    </a>
   </div>
 </BaseLayout>

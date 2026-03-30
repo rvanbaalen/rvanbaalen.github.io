@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ArticleLedgerRow from "../components/ArticleLedgerRow.astro";
 import ProjectRow from "../components/ProjectRow.astro";
-import ContactForm from "../components/ContactForm.astro";
 import FadeIn from "../components/FadeIn.astro";
 
 const allArticles = await getCollection("articles", ({ data }) => !data.draft);
@@ -119,13 +118,26 @@ const featuredProjects = allProjects
     <div class="pointer-events-none absolute -inset-x-6 -inset-y-10 z-[-1] sm:-inset-x-20" style={`background: radial-gradient(ellipse at 50% 40%, oklch(62% 0.04 260 / calc(var(--gradient-intensity) * 0.5)), transparent 40%);`} aria-hidden="true" />
     <h2 class="mb-2 flex items-center gap-2.5 text-[28px] font-normal text-primary">
       <i class="ph ph-coffee text-accent transition-colors duration-150" aria-hidden="true" />
-      Grab a coffee?
+      Get in touch
     </h2>
     <p class="mb-6 font-sans text-base text-muted">
-      No pitch, no pressure. Just a conversation. You'll walk away with fresh
-      perspectives on whatever you're working on... and I'll probably learn
-      something too.
+      Find me on one of these platforms.
     </p>
-    <ContactForm />
+    <div class="grid gap-4 sm:grid-cols-2">
+      <a href="https://github.com/rvanbaalen" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 rounded-lg border border-edge bg-base px-6 py-5 font-sans text-primary no-underline transition-colors duration-150 hover:border-accent-dim">
+        <i class="ph ph-github-logo text-[32px] text-muted transition-colors duration-150 group-hover:text-accent" aria-hidden="true" />
+        <div>
+          <span class="block text-[16px] font-medium transition-colors duration-150 group-hover:text-accent">GitHub</span>
+          <span class="block text-[13px] text-muted">@rvanbaalen</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/robinvanbaalen/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 rounded-lg border border-edge bg-base px-6 py-5 font-sans text-primary no-underline transition-colors duration-150 hover:border-accent-dim">
+        <i class="ph ph-linkedin-logo text-[32px] text-muted transition-colors duration-150 group-hover:text-accent" aria-hidden="true" />
+        <div>
+          <span class="block text-[16px] font-medium transition-colors duration-150 group-hover:text-accent">LinkedIn</span>
+          <span class="block text-[13px] text-muted">Robin van Baalen</span>
+        </div>
+      </a>
+    </div>
   </section>
 </BaseLayout>
