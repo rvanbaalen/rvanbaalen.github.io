@@ -7,8 +7,8 @@ import KineticHero from "../../components/KineticHero.astro";
 const allSkills = await getCollection("skills");
 
 const categories = [
-  { key: "skill", label: "Skills" },
   { key: "agent", label: "Agent Plugins" },
+  { key: "skill", label: "Skills" },
 ] as const;
 ---
 
@@ -17,12 +17,11 @@ const categories = [
     Agent Skills
   </KineticHero>
   <p class="-mt-10 mb-10 text-lg text-muted">
-    Skills extend Claude Code with specialized capabilities, from micro-commits to Lottie animation generation.
-    Each one is a plugin you install and invoke directly in your terminal.
+    Skills and agents that extend AI coding assistants with specialized capabilities — from micro-commits to Lottie animation generation.
   </p>
 
   <div class="mb-10 rounded-lg border border-edge bg-[var(--color-base)] px-4 py-3">
-    <p class="mb-2 font-sans text-[13px] text-dim">Install the full marketplace:</p>
+    <p class="mb-2 font-sans text-[13px] text-dim">Install the full marketplace in Claude Code:</p>
     <div class="flex items-center gap-2 overflow-hidden">
       <code class="min-w-0 flex-1 overflow-x-auto font-mono text-sm text-secondary">/plugin marketplace add rvanbaalen/skills</code>
       <button
