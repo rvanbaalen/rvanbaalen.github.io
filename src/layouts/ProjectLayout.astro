@@ -8,10 +8,11 @@ interface Props {
     repo: string;
     version?: string;
     tech?: string[];
+    website?: string;
   };
 }
 
-const { name, description, repo, version, tech } = Astro.props.frontmatter;
+const { name, description, repo, version, tech, website } = Astro.props.frontmatter;
 ---
 
 <BaseLayout title={`${name} — Robin van Baalen`} description={description}>
@@ -39,6 +40,17 @@ const { name, description, repo, version, tech } = Astro.props.frontmatter;
             {t}
           </span>
         ))}
+        {website && (
+          <a
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-accent transition-colors duration-150 hover:text-accent-bright"
+          >
+            <i class="ph ph-globe text-sm" aria-hidden="true" />
+            Website
+          </a>
+        )}
         <a
           href={`https://github.com/${repo}`}
           target="_blank"
