@@ -37,6 +37,11 @@
 - **Articles:** Create `.mdx` files in `src/content/articles/` with frontmatter: title, description, date, tags, draft
 - **Projects:** Create `.yaml` files in `src/content/projects/` with fields: name, description, url, repo, tech, category, featured, archived, order
 
+## Project Pages
+- When updating a project's `.mdx` page in `src/pages/projects/`, always verify the `version` frontmatter is still correct
+- Check the latest version via: `gh api repos/rvanbaalen/<repo>/releases/latest --jq '.tag_name'`
+- Update the frontmatter if the version is outdated
+
 ## Conventions
 - Use conventional commits (feat, fix, docs, etc.) for Git history
 - Release process handled by release-please
