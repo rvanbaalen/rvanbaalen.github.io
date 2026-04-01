@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.15.0](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.14.0...robinvanbaalen-website-v1.15.0) (2026-04-01)
+
+
+### Features
+
+* about page as concise thesis-style statements ([a85a7ae](https://github.com/rvanbaalen/website/commit/a85a7aea5fc4eb5ce81f38d282e204d92add36a1))
+* add Agent Vision project page ([a2343a9](https://github.com/rvanbaalen/website/commit/a2343a9cc22c1ec01deb5ce3b62dd42776058c82))
+* add ArticleLedgerRow component for editorial ledger format ([3a3cb81](https://github.com/rvanbaalen/website/commit/3a3cb81921fff55da75865b94cd6fcfb124dad5d))
+* add Laurel Proxy project and reorder standalone projects ([5d04952](https://github.com/rvanbaalen/website/commit/5d04952827caa12b664649210e9ea6ff9cedc3cc))
+* add optional hover_detail field to project content schema ([7e212fc](https://github.com/rvanbaalen/website/commit/7e212fcd95db2bba67f7c93293c432ca5da15981))
+* add optional website link to project pages ([206d4ee](https://github.com/rvanbaalen/website/commit/206d4ee6b85c328e5969b24c31daf50cae9ee901))
+* add project archive page and archive deprecated projects ([18f88bf](https://github.com/rvanbaalen/website/commit/18f88bf6bfc1f36e46e5c7bc3d4a7dccaff0ea4c))
+* add skills collection and nav items (WIP) ([d2fb3a7](https://github.com/rvanbaalen/website/commit/d2fb3a7ba0236260f2ed0226046a7deb6f1d05df))
+* add subtle hover detail reveal to project rows ([266590e](https://github.com/rvanbaalen/website/commit/266590ed758eaf415fd82206f475cbcdbe7cab48))
+* clean hero — heading only, let the content speak ([c280220](https://github.com/rvanbaalen/website/commit/c2802200fb4dda2d6b0e9518e683f459dd1716ba))
+* extract KineticHero into a reusable component ([06f1929](https://github.com/rvanbaalen/website/commit/06f19296fbf90c449684f9c3752e48a400c184ac))
+* final hero copy — founder, architect, building with AI ([a591086](https://github.com/rvanbaalen/website/commit/a591086c339dc88e2504373cecb6cd2656b5df16))
+* grayscale-to-color avatar effect with glow, update sidebar copy ([071061c](https://github.com/rvanbaalen/website/commit/071061cab18d0dd32849efb8a6a92fd60b6000bd))
+* hero copy — lead with opinion, not title ([e4c3d42](https://github.com/rvanbaalen/website/commit/e4c3d4218cd8caedc64a62fb212729771edd31ab))
+* homepage writing section with empty state, view transition names on section labels ([221a4bc](https://github.com/rvanbaalen/website/commit/221a4bc9d8cba5a32b2d0575a3ef49d271101240))
+* mark Laurel Proxy as featured project ([9a8b84b](https://github.com/rvanbaalen/website/commit/9a8b84be274ae91506d225fd9bd0a5af6af2b6b3))
+* restructure nav and homepage — Open Source, Writing, clickable badge ([b725f4a](https://github.com/rvanbaalen/website/commit/b725f4a1853b4c15024c995133f4264ab4c0517c))
+* rewrite about page copy, replace contact form with profile links ([3952182](https://github.com/rvanbaalen/website/commit/39521820ab4b41c2da3b9946b8b0fb22d92e0e42))
+* **skills:** add CPR skill page and content entry ([2c0d276](https://github.com/rvanbaalen/website/commit/2c0d2768477650e2db6363292b45485cac18f298))
+* **skills:** add Use AgentVision skill page and content entry ([372bb6c](https://github.com/rvanbaalen/website/commit/372bb6cf81511e06ec3e445f23884bd1a137784d))
+* update sidebar avatar and add decorative arrow ([aaffb91](https://github.com/rvanbaalen/website/commit/aaffb91faf9c2da8b89db44204fb1e575c70d2b9))
+* update skill descriptions and docs for cofounder v1.1, pm v2.0, lottie-animator ([b644bcf](https://github.com/rvanbaalen/website/commit/b644bcf449f3259e7ea379383b21a7e6d4e14ed4))
+* wire up view transitions across nav and page heroes ([dec8a04](https://github.com/rvanbaalen/website/commit/dec8a048f755173180791edcdd801153d287e926))
+* writing page ledger format with sarcastic empty state ([3b82e55](https://github.com/rvanbaalen/website/commit/3b82e55e3f2874466a69800d36796b4fae4a3ef1))
+
+
+### Bug Fixes
+
+* about page copy — workshop refined statements, drop invitation ([c33e2c9](https://github.com/rvanbaalen/website/commit/c33e2c90c18b4dd0b3cd7fff8a1a263cbd4e0d96))
+* enable contact form API route for SSR on Cloudflare ([87ef76e](https://github.com/rvanbaalen/website/commit/87ef76e61292faae3235190b9f07723ee5129545))
+* improve contact form contrast — surface bg, visible placeholders and icons ([c2e9b84](https://github.com/rvanbaalen/website/commit/c2e9b8418ba1a76fab22394a07d942a62a113fd7))
+* link hashparser to hashparser.js.org domain ([0626c6f](https://github.com/rvanbaalen/website/commit/0626c6fb66075536368c4866990bad0f6ee4bca8))
+* overhaul contact form UX ([9fb969d](https://github.com/rvanbaalen/website/commit/9fb969d285b764dca6697c6eef378e3cb09db17a))
+* prevent horizontal scroll on mobile skill pages ([aeee8af](https://github.com/rvanbaalen/website/commit/aeee8af6d0df19fe6bd96f136bb8f3ddd2cf8816))
+* QA pass — accessibility, broken links, light theme colors ([713ea2d](https://github.com/rvanbaalen/website/commit/713ea2dfd4b0e5895431409ba1908f83b5ed30f4))
+* **qa:** mobile horizontal overflow, hero text sizing, crammed nav items ([3f2014d](https://github.com/rvanbaalen/website/commit/3f2014d2c9aa1e31f5eb05c72908a7c036d16bd9))
+* **qa:** remove duplicate CTA on about page, keep availability badge only ([edaaf41](https://github.com/rvanbaalen/website/commit/edaaf4191667226bb26f6d83024196e134597873))
+* remove duplicate /articles routes, fix ArticleCard links to /writing ([ce906cb](https://github.com/rvanbaalen/website/commit/ce906cb904b385cdde744ae2c17c82dc745f7c91))
+* reorder skill categories and update description copy on skills index ([ee05e60](https://github.com/rvanbaalen/website/commit/ee05e606ee77b09a591164c8a4df075096aebf98))
+* update RSS feed links from /articles to /writing ([72e8760](https://github.com/rvanbaalen/website/commit/72e8760f4c9b0e7e8b8a56e7cb98508efdd5ce28))
+
 ## [1.14.0](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.13.0...robinvanbaalen-website-v1.14.0) (2026-03-29)
 
 
