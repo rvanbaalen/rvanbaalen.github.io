@@ -1,0 +1,46 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: Use AgentVision
+description: See and interact with the user's screen using screenshots, element discovery, clicks, form filling, and visual QA
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:use-agentvision"
+install: "use-agentvision@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use when you need Claude to see and interact with what is on your screen. This covers UI development feedback loops (before/after screenshots), visual QA of running applications, filling out forms, navigating desktop apps, and testing mobile emulators. Any task where Claude needs to observe pixels and drive the mouse or keyboard benefits from this skill.
+
+## How it works
+
+1. Starts a session via `agent-vision start`, which prompts you to select a screen region
+2. Scans the selected region for UI elements using the macOS Accessibility API
+3. Acts on discovered elements — clicking, typing, scrolling, dragging, or pressing keyboard shortcuts
+4. Waits briefly for the UI to settle, then re-scans because element indices become stale after every interaction
+5. Captures screenshots at any point to visually verify outcomes
+6. Ends the session with `agent-vision stop` when the task is complete
+
+## Capabilities
+
+**Session management** — all interactions are scoped to a user-selected screen region via a session UUID. Sessions are started and stopped explicitly, keeping control predictable.
+
+**Element discovery** — scans the region using the Accessibility API to build an indexed list of interactive elements. Prefers element-based targeting (`--element N`) over raw coordinates for reliability.
+
+**Screen capture** — takes screenshots of the selected region on demand, useful for visual diffing, QA reports, and verifying that an action had the intended effect.
+
+**UI control** — clicks buttons, types into fields, scrolls content, drags elements, and sends keyboard shortcuts. All commands go through `agent-vision control` and stay within the selected area.
+
+**Coordinate verification** — falls back to coordinate-based interaction (`--at X,Y`) when accessibility targeting is unavailable, with cursor movement and focus management handled automatically.
+
+**Visual QA** — combines scanning, acting, and capturing into end-to-end visual checks across multi-step flows, reporting findings after each screenshot.
+
+## Invoke
+
+```
+/rvanbaalen:use-agentvision
+```
+
+The skill also activates automatically when you say things like "look at my screen", "take a screenshot", "fill this form", or "check the UI".
