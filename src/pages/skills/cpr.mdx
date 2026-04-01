@@ -1,0 +1,38 @@
+---
+layout: ../../layouts/SkillLayout.astro
+name: CPR
+description: Commit, push, and release in one fire-and-forget command
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:cpr"
+install: "cpr@rvanbaalen"
+repo: "rvanbaalen/skills"
+category: "skill"
+---
+
+## When to use
+
+Use when you want to commit, push, and cut a release in a single command without babysitting the process. CPR runs the entire pipeline in the background — you keep working while it analyzes your changes, commits them with conventional messages, pushes to remote, and optionally merges the release-please PR.
+
+## How it works
+
+1. Spawns a background agent running the full commit-push-release pipeline
+2. Analyzes your repo state and creates clean conventional commits
+3. Pushes to remote and conditionally triggers release-please
+4. Reports a summary when the pipeline completes
+
+## Pipeline steps
+
+**Commit** — Reads `git status`, `git diff`, and recent log history. Groups related files into logical commits with conventional commit messages (feat, fix, refactor, chore). Never commits secrets or bypasses hooks.
+
+**Push** — Pushes all new commits to the remote branch, setting upstream tracking if needed. Pushing to main or master is allowed.
+
+**Release-please** — Only runs when on main/master and the repo uses release-please. Waits for the release-please PR to appear, merges it (directly or via auto-merge), and monitors the release workflow to completion.
+
+**Summary** — Reports back with commits made, push result, and release-please outcome.
+
+## Invoke
+
+```
+/rvanbaalen:cpr
+```

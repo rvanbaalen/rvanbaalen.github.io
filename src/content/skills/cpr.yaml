@@ -1,0 +1,8 @@
+name: CPR
+description: Commit, push, and release in one fire-and-forget command
+version: "1.0.0"
+author: Robin van Baalen
+invoke: "/rvanbaalen:cpr"
+trigger: manual
+category: skill
+order: 13
