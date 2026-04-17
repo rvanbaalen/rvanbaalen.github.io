@@ -18,18 +18,7 @@ npx wrangler deployments list | tail -30   # most recent deployments
 npx wrangler deployments status             # current active deployment
 ```
 
-To watch for a new deployment after pushing, use the Monitor tool with a poll loop that emits when a new deployment ID appears:
-
-```bash
-LAST=$(npx wrangler deployments list 2>/dev/null | grep -oE '[a-f0-9-]{36}' | tail -1)
-while true; do
-  CUR=$(npx wrangler deployments list 2>/dev/null | grep -oE '[a-f0-9-]{36}' | tail -1)
-  [ "$CUR" != "$LAST" ] && echo "NEW DEPLOYMENT: $CUR" && break
-  sleep 15
-done
-```
-
-After the new deployment appears, verify live URLs with `curl -sfL -o /dev/null -w "%{http_code}\n" <url>`.
+To watch for a new deployment after pushing, use Claude Code's **Monitor** tool with `npx wrangler deployments list`. Do not write polling loops manually — Monitor handles the streaming and notifies on new output.
 
 ## Tech Stack
 - **Framework:** Astro 5.x with Content Layer API
