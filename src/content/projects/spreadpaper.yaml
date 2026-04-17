@@ -1,0 +1,12 @@
+name: SpreadPaper
+description: macOS utility that lets a single high-resolution image span seamlessly across every connected monitor — no cropping, no per-display juggling
+url: /projects/spreadpaper
+repo: https://github.com/spreadpaper/SpreadPaper
+tech:
+  - Swift
+  - macOS
+  - App
+category: standalone
+featured: true
+order: 10
+hover_detail: Spread one wallpaper across multiple monitors on macOS

@@ -1,0 +1,69 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+name: "SpreadPaper"
+description: "Spread one high-resolution wallpaper across multiple monitors"
+repo: "spreadpaper/SpreadPaper"
+website: "https://spreadpaper.github.io/SpreadPaper/"
+version: "1.5.2"
+tech: ["Swift", "macOS", "App"]
+---
+
+## Description
+
+A native macOS utility that lets you use a single high-resolution image as a wallpaper that seamlessly spans across all your connected monitors. No more separate wallpapers for each display or awkward cropping — just drag, position, and apply.
+
+Perfect for:
+
+- **Multi-monitor setups** with two, three, or more displays
+- **Ultra-wide panoramic images** that deserve to be shown in full
+- **Creative professionals** who want a cohesive desktop aesthetic
+- **Anyone** tired of macOS's limited multi-monitor wallpaper options
+
+## Features
+
+- **Visual positioning** — drag and place your wallpaper exactly where you want it across all displays
+- **Live preview** — see exactly how your wallpaper will look before applying it
+- **Flip and scale** — mirror horizontally and zoom in/out to get the perfect fit
+- **Save presets** — store favorite configurations for quick switching
+- **Multi-monitor smart** — automatically detects all connected displays and their arrangement
+- **Native rendering** — renders at native resolution per display for optimal quality
+
+## Requirements
+
+- macOS 15.0 (Sequoia) or later
+- Apple Silicon Mac
+- Works best with two or more displays (but supports single-display setups too)
+
+## Installation
+
+[**Download the latest release**](https://github.com/spreadpaper/SpreadPaper/releases/latest) and open the `.dmg`, then drag **SpreadPaper** to your **Applications** folder.
+
+Because SpreadPaper is free and open source — not signed with a paid Apple Developer ID — macOS Gatekeeper will flag it on first launch. Remove the quarantine flag once:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/SpreadPaper.app
+```
+
+Future launches work normally.
+
+## How to Use
+
+1. **Launch SpreadPaper** and click "Open", or drag an image onto the window
+2. **Position your wallpaper** by dragging it around the preview canvas
+3. **Adjust the zoom** with the slider or +/- buttons for the perfect fit
+4. **Flip if needed** to mirror the image horizontally
+5. **Click "Apply Wallpaper"** to set it across all your monitors
+6. **Save as preset** to quickly reapply the configuration later
+
+## Building from Source
+
+```bash
+git clone https://github.com/spreadpaper/SpreadPaper.git
+cd SpreadPaper
+open SpreadPaper.xcodeproj
+# Build and run (⌘R)
+```
+
+## License
+
+MIT.

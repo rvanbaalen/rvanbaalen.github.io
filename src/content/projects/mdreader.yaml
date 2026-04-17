@@ -1,0 +1,12 @@
+name: mdreader
+description: A beautiful, native macOS markdown reader — not an editor. First-class typography, syntax highlighting, and a design that gets out of the way
+url: /projects/mdreader
+repo: https://github.com/rvanbaalen/mdreader
+tech:
+  - Swift
+  - macOS
+  - App
+category: standalone
+featured: true
+order: 11
+hover_detail: Native macOS markdown reader with first-class typography
