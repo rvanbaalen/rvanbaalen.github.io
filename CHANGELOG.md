@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.1](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.15.0...robinvanbaalen-website-v1.15.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* update agent-vision install instructions to use consolidated tap ([d89694f](https://github.com/rvanbaalen/website/commit/d89694f62ba43594a99a0c658d4ed19afd4ad0cf))
+
 ## [1.15.0](https://github.com/rvanbaalen/website/compare/robinvanbaalen-website-v1.14.0...robinvanbaalen-website-v1.15.0) (2026-04-01)
 
 
