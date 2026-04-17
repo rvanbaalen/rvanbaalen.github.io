@@ -5,13 +5,39 @@
 - `npm run build` - Build for production (output: `dist/`)
 - `npm run preview` - Preview production build locally
 
+## Deployment
+- **Cloudflare auto-deploys on push to `main`** via its native git integration. There is no GitHub Actions deploy step — do not add one.
+- The `release-please` workflow only creates/merges release PRs and tags; it does not deploy.
+- Flow: merge release-please PR → push lands on `main` → Cloudflare builds and deploys within ~60s.
+
+### Monitoring deployments
+Use the wrangler CLI (already authenticated locally):
+
+```bash
+npx wrangler deployments list | tail -30   # most recent deployments
+npx wrangler deployments status             # current active deployment
+```
+
+To watch for a new deployment after pushing, use the Monitor tool with a poll loop that emits when a new deployment ID appears:
+
+```bash
+LAST=$(npx wrangler deployments list 2>/dev/null | grep -oE '[a-f0-9-]{36}' | tail -1)
+while true; do
+  CUR=$(npx wrangler deployments list 2>/dev/null | grep -oE '[a-f0-9-]{36}' | tail -1)
+  [ "$CUR" != "$LAST" ] && echo "NEW DEPLOYMENT: $CUR" && break
+  sleep 15
+done
+```
+
+After the new deployment appears, verify live URLs with `curl -sfL -o /dev/null -w "%{http_code}\n" <url>`.
+
 ## Tech Stack
 - **Framework:** Astro 5.x with Content Layer API
 - **Styling:** Tailwind CSS v4 via `@tailwindcss/vite` plugin
 - **Content:** MDX articles + YAML project data via Content Collections
 - **Icons:** Phosphor Icons (`@phosphor-icons/web`, regular weight)
 - **Fonts:** Lora (serif, via @fontsource) + DM Sans (sans, labels/nav/UI) + IBM Plex Mono (mono, code blocks only, via @fontsource)
-- **Hosting:** Cloudflare Pages with Functions
+- **Hosting:** Cloudflare Workers with static assets binding (`wrangler.jsonc`)
 - **Analytics:** Google Analytics + PostHog
 
 ## Code Style
